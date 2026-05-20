@@ -42,7 +42,7 @@ def extract_prs(author: str, start: str, search_end: str) -> list[dict]:
         "search", "prs",
         "--author", author,
         "--created", f"{start}..{search_end}",
-        "--json", "title,repository,url,state,mergedAt,body",
+        "--json", "title,repository,url,state,closedAt,body",
         "--limit", "200",
     ])
     return [
@@ -51,7 +51,7 @@ def extract_prs(author: str, start: str, search_end: str) -> list[dict]:
             "repo": item["repository"]["nameWithOwner"],
             "url": item["url"],
             "state": item["state"],
-            "merged_at": item.get("mergedAt"),
+            "merged_at": item.get("closedAt"),
             "body": (item.get("body") or "")[:500],
         }
         for item in raw
@@ -150,7 +150,7 @@ def main():
     end_date = datetime.strptime(args.end, "%Y-%m-%d").date()
     search_end = min(end_date, date.today()).strftime("%Y-%m-%d")
 
-    print(f"Extracting GitHub activity for {args.author}: {args.start} → {args.end} (search up to {search_end})")
+    print(f"Extracting GitHub activity for {args.author}: {args.start} -> {args.end} (search up to {search_end})")
 
     prs = extract_prs(args.author, args.start, search_end)
     issues = extract_issues(args.author, args.start, search_end)

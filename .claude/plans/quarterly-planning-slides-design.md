@@ -49,10 +49,38 @@ Claude waits for user confirmation at each phase boundary (CLAUDE.md rule).
 - Args: `--start YYYY-MM-DD`
 - Finds the notes file at `neuroinformatics-unit/documentation/minutes/quarterly_planning/`
   with date closest to `--start`
-- Extracts deliverables for: Aeon, Movement, PoseInterface
-- Tags each deliverable: `ch` (mentions CH/Chang Huan), `other`, `unassigned`
-- Flags unassigned items → Claude asks user to confirm ownership
+- Extracts deliverables from "Deliverables for next quarter" section for: Aeon, Movement, PoseInterface
+- Assignment rules:
+  - **Aeon**: all deliverables → `ch` (CH owns all Aeon work)
+  - **Movement / PoseInterface**: look for explicit markers:
+    - Person subsection headers within the section (e.g. `CH:`, `NS primary:`)
+    - `All:` subsection → `ch` (applies to everyone including CH)
+    - Inline `(CH)` or `CH:` on the bullet line → `ch`
+    - Items under another person's subsection → `other`
+    - No markers → `unassigned` (flagged for phase 4 confirmation)
+  - "PoseInterface" also matches "pose interface" (space variant in notes)
+- Also parses "Personal time allocation > CH" markdown table for per-project
+  commitment data (`commitment_next_quarter`, `notes`)
+- Flags unassigned items → Claude asks user to confirm ownership in phase 4
 - Output: `.claude/handoff/quarterly_notes.json`
+
+Output JSON shape:
+```json
+{
+  "notes_date": "YYYY-MM-DD",
+  "source_file": "YYYY-MM-DD.md",
+  "projects": {
+    "Aeon": {
+      "deliverables": [{"text": "...", "assigned": "ch", "raw": "..."}]
+    }
+  },
+  "ch_time_allocation": {
+    "Aeon": {"commitment_next_quarter": "3w", "notes": "..."},
+    "movement": {"commitment_next_quarter": "2w", "notes": "..."}
+  },
+  "unassigned_deliverables": [{"project": "...", "text": "..."}]
+}
+```
 
 ### tools/generate_slides.py
 

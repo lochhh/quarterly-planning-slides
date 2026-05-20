@@ -1,0 +1,230 @@
+{
+  "notes_date": "2026-03-03",
+  "source_file": "2026-03-03.md",
+  "projects": {
+    "Aeon": {
+      "deliverables": [
+        {
+          "text": "`aeon_docs`",
+          "assigned": "ch",
+          "raw": "- `aeon_docs`"
+        },
+        {
+          "text": "image improvements (dark mode, sizing)",
+          "assigned": "ch",
+          "raw": "- image improvements (dark mode, sizing)"
+        },
+        {
+          "text": "rename and redirect sample datasets page",
+          "assigned": "ch",
+          "raw": "- rename and redirect sample datasets page"
+        },
+        {
+          "text": "`aeon_api`",
+          "assigned": "ch",
+          "raw": "- `aeon_api`"
+        },
+        {
+          "text": "tests for analysis modules",
+          "assigned": "ch",
+          "raw": "- tests for analysis modules"
+        },
+        {
+          "text": "ARC-DJ (support) :hourglass:",
+          "assigned": "ch",
+          "raw": "- ARC-DJ (support) :hourglass:"
+        },
+        {
+          "text": "build infrastructure on swc hpc",
+          "assigned": "ch",
+          "raw": "- build infrastructure on swc hpc"
+        },
+        {
+          "text": "ingest full social data",
+          "assigned": "ch",
+          "raw": "- ingest full social data"
+        },
+        {
+          "text": "`aeon_mecha` v0.3.0",
+          "assigned": "ch",
+          "raw": "- `aeon_mecha` v0.3.0"
+        },
+        {
+          "text": "ephys pipeline",
+          "assigned": "ch",
+          "raw": "- ephys pipeline"
+        },
+        {
+          "text": "use aeon_api pydantic models",
+          "assigned": "ch",
+          "raw": "- use aeon_api pydantic models"
+        }
+      ]
+    },
+    "Movement": {
+      "deliverables": [
+        {
+          "text": "Regions of interest",
+          "assigned": "other",
+          "raw": "- Regions of interest"
+        },
+        {
+          "text": "Merge PR for [ROI drawing](https://github.com/neuroinformatics-unit/movement/pull/617)",
+          "assigned": "other",
+          "raw": "- Merge PR for [ROI drawing](https://github.com/neuroinformatics-unit/movement/pull/617)"
+        },
+        {
+          "text": "Implement conversion napari shape -> movement ROI, [issue #676](https://github.com/neuroinformatics-unit/movement/issues/676)",
+          "assigned": "other",
+          "raw": "- Implement conversion napari shape -> movement ROI, [issue #676](https://github.com/neuroinformatics-unit/movement/issues/676)"
+        },
+        {
+          "text": "Document the drawing and usage of ROIs (open issue)",
+          "assigned": "other",
+          "raw": "- Document the drawing and usage of ROIs (open issue)"
+        },
+        {
+          "text": "Start writing `movement` paper (NS)",
+          "assigned": "other",
+          "raw": "- Start writing `movement` paper (NS)"
+        },
+        {
+          "text": "Sketch out figure 1 (showcase versatility)",
+          "assigned": "other",
+          "raw": "- Sketch out figure 1 (showcase versatility)"
+        },
+        {
+          "text": "Finish [example for events of interest](https://github.com/neuroinformatics-unit/movement/pull/821)",
+          "assigned": "other",
+          "raw": "- Finish [example for events of interest](https://github.com/neuroinformatics-unit/movement/pull/821)"
+        },
+        {
+          "text": "Developer/contributor experience",
+          "assigned": "other",
+          "raw": "- Developer/contributor experience"
+        },
+        {
+          "text": "[Split contributing guide into pages](https://github.com/neuroinformatics-unit/movement/pull/826)",
+          "assigned": "other",
+          "raw": "- [Split contributing guide into pages](https://github.com/neuroinformatics-unit/movement/pull/826)"
+        },
+        {
+          "text": "expand testing guide",
+          "assigned": "other",
+          "raw": "- expand testing guide"
+        },
+        {
+          "text": "write maintainer guide (incl. releases)",
+          "assigned": "other",
+          "raw": "- write maintainer guide (incl. releases)"
+        },
+        {
+          "text": "add attribution paragraphs to examples",
+          "assigned": "other",
+          "raw": "- add attribution paragraphs to examples"
+        },
+        {
+          "text": "[PR review comments from loading bboxes speed-up](https://github.com/neuroinformatics-unit/movement/pull/769)",
+          "assigned": "other",
+          "raw": "- [PR review comments from loading bboxes speed-up](https://github.com/neuroinformatics-unit/movement/pull/769)"
+        },
+        {
+          "text": "Help [COCO keypoints loading PR](https://github.com/neuroinformatics-unit/movement/pull/818) get merged",
+          "assigned": "ch",
+          "raw": "- Help [COCO keypoints loading PR](https://github.com/neuroinformatics-unit/movement/pull/818) get merged"
+        },
+        {
+          "text": "Removing types from docstrings",
+          "assigned": "ch",
+          "raw": "- Removing types from docstrings"
+        },
+        {
+          "text": "Ruthlessly** cut down number of open PRs",
+          "assigned": "ch",
+          "raw": "- **Ruthlessly** cut down number of open PRs"
+        }
+      ]
+    },
+    "PoseInterface": {
+      "deliverables": [
+        {
+          "text": "Extract clips and corresponding cliplabels.json",
+          "assigned": "unassigned",
+          "raw": "- Extract clips and corresponding cliplabels.json"
+        },
+        {
+          "text": "Convert SLEAP/DLC predictions to COCO.json",
+          "assigned": "unassigned",
+          "raw": "- Convert SLEAP/DLC predictions to COCO.json"
+        },
+        {
+          "text": "Utilities to extract clip(s) from video (minimally an example)",
+          "assigned": "unassigned",
+          "raw": "- Utilities to extract clip(s) from video (minimally an example)"
+        },
+        {
+          "text": "Upload 2 sessions from SWC (1 train / 1 test)",
+          "assigned": "unassigned",
+          "raw": "- Upload 2 sessions from SWC (1 train / 1 test)"
+        },
+        {
+          "text": "Clarify relationship / scope with ethology",
+          "assigned": "unassigned",
+          "raw": "- Clarify relationship / scope with ethology"
+        }
+      ]
+    }
+  },
+  "ch_time_allocation": {
+    "Meetings/admin/code review": {
+      "commitment_next_quarter": "1w",
+      "notes": "-"
+    },
+    "Aeon": {
+      "commitment_next_quarter": "3w",
+      "notes": "- website </br> - tests for `aeon_api` </br> - `aeon_mecha` v0.3.0 </br>"
+    },
+    "movement": {
+      "commitment_next_quarter": "2w",
+      "notes": "PR reviews"
+    },
+    "poseinterface": {
+      "commitment_next_quarter": "1.5w",
+      "notes": ""
+    },
+    "ARC-DJ": {
+      "commitment_next_quarter": "1w",
+      "notes": ""
+    },
+    "Conferences/Learning": {
+      "commitment_next_quarter": "-",
+      "notes": ""
+    },
+    "Teaching": {
+      "commitment_next_quarter": "0.5w",
+      "notes": "OSSS 2026 prep"
+    }
+  },
+  "unassigned_deliverables": [
+    {
+      "project": "PoseInterface",
+      "text": "Extract clips and corresponding cliplabels.json"
+    },
+    {
+      "project": "PoseInterface",
+      "text": "Convert SLEAP/DLC predictions to COCO.json"
+    },
+    {
+      "project": "PoseInterface",
+      "text": "Utilities to extract clip(s) from video (minimally an example)"
+    },
+    {
+      "project": "PoseInterface",
+      "text": "Upload 2 sessions from SWC (1 train / 1 test)"
+    },
+    {
+      "project": "PoseInterface",
+      "text": "Clarify relationship / scope with ethology"
+    }
+  ]
+}
