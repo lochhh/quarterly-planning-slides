@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Push a local file to a HackMD note.
 
-Usage: python sync_hackmd.py <local_file> <note_id>
+Usage:
+    python sync_hackmd.py <local_file> <note_id>          # update existing note
+    python sync_hackmd.py <local_file> --create           # create new note, prints URL
 """
 
 import os
@@ -14,10 +16,10 @@ from pathlib import Path
 
 def main():
     if len(sys.argv) != 3:
-        print(f"Usage: {sys.argv[0]} <local_file> <note_id>", file=sys.stderr)
+        print(f"Usage: {sys.argv[0]} <local_file> <note_id|--create>", file=sys.stderr)
         sys.exit(1)
 
-    local_file, note_id = sys.argv[1], sys.argv[2]
+    local_file, target = sys.argv[1], sys.argv[2]
 
     token = os.environ.get("HACKMD_API_TOKEN")
     if not token:
@@ -26,6 +28,13 @@ def main():
 
     content = Path(local_file).read_text(encoding="utf-8")
 
+    if target == "--create":
+        _create_note(token, content, Path(local_file).stem)
+    else:
+        _update_note(token, content, target)
+
+
+def _update_note(token: str, content: str, note_id: str) -> None:
     payload = json.dumps({"content": content}).encode("utf-8")
     req = urllib.request.Request(
         f"https://api.hackmd.io/v1/notes/{note_id}",
@@ -36,10 +45,37 @@ def main():
             "Content-Type": "application/json",
         },
     )
-
     try:
         with urllib.request.urlopen(req) as resp:
-            print(f"OK ({resp.status})")
+            print(f"Updated note {note_id} (HTTP {resp.status})")
+    except urllib.error.HTTPError as e:
+        print(f"Error: HTTP {e.code} — {e.read().decode()}", file=sys.stderr)
+        sys.exit(1)
+
+
+def _create_note(token: str, content: str, title: str) -> None:
+    payload = json.dumps({
+        "content": content,
+        "readPermission": "owner",
+        "writePermission": "owner",
+        "commentPermission": "disabled",
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.hackmd.io/v1/notes",
+        data=payload,
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req) as resp:
+            data = json.loads(resp.read().decode())
+            note_id = data["id"]
+            note_url = data.get("publishLink") or f"https://hackmd.io/{note_id}"
+            print(f"Created note: {note_url}")
+            print(f"Note ID: {note_id}")
     except urllib.error.HTTPError as e:
         print(f"Error: HTTP {e.code} — {e.read().decode()}", file=sys.stderr)
         sys.exit(1)
