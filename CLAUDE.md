@@ -29,7 +29,7 @@
 - Summarise created/verified tools and wait for confirmation.
 
 ### Phase 2 — Extraction Phase
-- Run Python tools to extract GitHub activity and quarterly notes.
+- Run Python tools to extract GitHub activity and quarterly notes. Use `uv run python`.
 - Ask for and use provided start and end dates.
 - Exclude irrelevant repositories.
 - Produce structured JSON and summarise results.
