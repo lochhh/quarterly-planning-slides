@@ -30,7 +30,7 @@ The **end date** has 3 roles:
 ### My GitHub activity
 Use gh CLI to collect, within the specified start, end dates:
 - All PRs, issues, commits, and discussions I contributed to in that period.
-- Exclude these repositories: e-Babylab, claude-code-slides
+- Exclude these repositories: e-Babylab, claude-code-slides, quarterly-planning-slides
 This must handle the case when end date is a future date (see #end-date-semantics)
 
 ## Tool Requirements
