@@ -52,16 +52,12 @@ Claude waits for user confirmation at each phase boundary (CLAUDE.md rule).
 - Extracts deliverables from "Deliverables for next quarter" section for: Aeon, Movement, PoseInterface
 - Assignment rules:
   - **Aeon**: all deliverables → `ch` (CH owns all Aeon work)
-  - **Movement / PoseInterface**: look for explicit markers:
-    - Person subsection headers within the section (e.g. `CH:`, `NS primary:`)
-    - `All:` subsection → `ch` (applies to everyone including CH)
-    - Inline `(CH)` or `CH:` on the bullet line → `ch`
-    - Items under another person's subsection → `other`
-    - No markers → `unassigned` (flagged for phase 4 confirmation)
+  - **Movement / PoseInterface**: gather all deliverables regardless of ownership; analysis is per-project, no need to confirm ownership
   - "PoseInterface" also matches "pose interface" (space variant in notes)
+  - "Movement" also matches "movement" (lowercase variant in notes)
 - Also parses "Personal time allocation > CH" markdown table for per-project
   commitment data (`commitment_next_quarter`, `notes`)
-- Flags unassigned items → Claude asks user to confirm ownership in phase 4
+- Flags unassigned items → Claude asks user to confirm ownership in phase 4; except for movement/poseinterface deliverables which are all included regardless of ownership
 - Output: `.claude/handoff/quarterly_notes.json`
 
 Output JSON shape:
@@ -144,6 +140,7 @@ Next Quarter — [Project]
 
 ## Phase 4 Q&A questions per project (3-5 each)
 
+0. Which projects to include/exclude in the slides? 
 1. What went well this quarter?
 2. What was the biggest challenge or blocker?
 3. Any unexpected outcomes (wins or slips)?
