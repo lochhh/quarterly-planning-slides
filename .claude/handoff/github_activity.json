@@ -1,10 +1,50 @@
 {
   "period": {
     "start": "2026-03-03",
-    "end": "2026-06-02",
-    "search_end": "2026-05-20"
+    "end": "2026-06-01",
+    "search_end": "2026-06-01"
   },
   "pull_requests": [
+    {
+      "title": "Pin `sphinx-autodoc-typehints>=3.10.4`",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/1016",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #975 \r\n\r\n**What does this PR do?**\r\n- Upstream PR to fix TypeAliasType issues (#958) has been released, sets an upper pin to the latest `sphinx-autodoc-typehints` version\r\n- Removes the workaround added in #969\r\n\r\n## How has this PR been tested?\r\nLocal docs build\r\n\r\n## Checklist:\r\n\r\n- [x] The code has been tested locally\r\n- [ ] Tests have been added to cover "
+    },
+    {
+      "title": "Add pre-commit hook to prevent hardcoded movement website references in docs",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/1010",
+      "state": "merged",
+      "merged_at": "2026-05-28T09:48:10Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #645 \r\n\r\nA simpler alternative to #765 that uses pre-commit to catch hardcoded movement website references in all files in docs, except for conf.py.\r\n\r\n## How has this PR been tested?\r\ncommit fails when I try to add https://movement.neuroinformatics.dev/latest/examples/index.html in docs/source/index.md\r\n<img width=\"1047\" height=\"191\" alt=\"image\" src=\"https:/"
+    },
+    {
+      "title": "Pin sleap-io>=0.7.1",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/55",
+      "state": "merged",
+      "merged_at": "2026-05-27T15:07:42Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #44 \r\n\r\n**What does this PR do?**\r\nThe issue is resolved upstream in [sleap-io v0.7.1](https://github.com/talmolab/sleap-io/releases/tag/v0.7.1).\r\nThis PR updates the sleap-io upper pin in pyproject.toml to v0.7.1\r\n\r\n## How has this PR been tested?\r\npytest passes with the minimal reproduction example in #44 \r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested "
+    },
+    {
+      "title": "PR 989 review suggestions",
+      "repo": "ishan372or/movement",
+      "url": "https://github.com/ishan372or/movement/pull/1",
+      "state": "merged",
+      "merged_at": "2026-05-27T05:14:02Z",
+      "body": ""
+    },
+    {
+      "title": "Reorganise tests and ephys test factories",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/576",
+      "state": "merged",
+      "merged_at": "2026-05-21T13:50:27Z",
+      "body": "- Merged `test_onix_codec_integration.py` into `test_codec_integration.py`\r\n- Reorganised ephys test factories\r\n  - Renamed `tests/dj_pipeline/_synthetic_ephys_fixtures.py` to `tests/fixtures/ephys/ephys_factories.py`\r\n  - Updated imports in `test_onix_imu_pipeline_integration.py` and `test_codec_integration.py`\r\n- Update `pythonpath` in `pyproject.toml` to add `tests/fixtures/ephys` to sys.path when pytest runs - this lets tests import from the ephys fixtures dir without package prefix, e.g. `f"
+    },
     {
       "title": "Replace conda+requirements.txt setup with pixi+pyproject.toml",
       "repo": "SainsburyWellcomeCentre/aeon_docs",
@@ -49,8 +89,8 @@
       "title": "Test codecov behaviour",
       "repo": "neuroinformatics-unit/movement",
       "url": "https://github.com/neuroinformatics-unit/movement/pull/980",
-      "state": "open",
-      "merged_at": "0001-01-01T00:00:00Z",
+      "state": "closed",
+      "merged_at": "2026-05-27T10:46:48Z",
       "body": ""
     },
     {
@@ -217,8 +257,8 @@
       "title": "Preserve images with 0 instances as empty labeled frames in DLC and COCO readers",
       "repo": "talmolab/sleap-io",
       "url": "https://github.com/talmolab/sleap-io/pull/418",
-      "state": "open",
-      "merged_at": "0001-01-01T00:00:00Z",
+      "state": "merged",
+      "merged_at": "2026-05-21T04:10:56Z",
       "body": "Closes #417 \r\n\r\nThis PR\r\n- fixes the COCO reader to create a LabeledFrame for every image in the \"images\" array, regardless of whether it appears in \"annotations\"\r\n- fixes the DLC reader to create a LabeledFrame for every CSV row, regardless of whether all coordinates are NaN\r\n- adds tests/data/coco/flat_images/annotations_negative_frame.json, a COCO annotations file with 3 images and 2 annotations (image id 2 has no corresponding annotation to represent a negative frame)\r\n- extends COCO read_la"
     },
     {
@@ -440,6 +480,34 @@
   ],
   "issues": [
     {
+      "title": "Update poses `confidence_array` docs",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1004",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Support saving individual-wise confidence scores to different formats",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1003",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Add support for COCO keypoint results format",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1000",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Replace `print_slurm_config` with `write_spike_sorting_scripts`",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/issues/577",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
       "title": "Prev/next navigation style broken in `aeon_acquisition` API reference",
       "repo": "SainsburyWellcomeCentre/aeon_docs",
       "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/251",
@@ -513,8 +581,8 @@
       "title": "Inconsistent empty frame handling across I/O formats",
       "repo": "talmolab/sleap-io",
       "url": "https://github.com/talmolab/sleap-io/issues/417",
-      "state": "open",
-      "closed_at": "0001-01-01T00:00:00Z"
+      "state": "closed",
+      "closed_at": "2026-05-21T04:10:57Z"
     },
     {
       "title": "Migrate `dev` and `docs` from optional dependencies to PEP 735 dependency groups",
@@ -541,8 +609,8 @@
       "title": "Frames without detected keypoints",
       "repo": "neuroinformatics-unit/poseinterface",
       "url": "https://github.com/neuroinformatics-unit/poseinterface/issues/44",
-      "state": "open",
-      "closed_at": "0001-01-01T00:00:00Z"
+      "state": "closed",
+      "closed_at": "2026-05-27T15:07:44Z"
     },
     {
       "title": "pyright errors",
@@ -589,29 +657,14 @@
   ],
   "commits": [
     {
-      "repo": "SainsburyWellcomeCentre/aeon_docs",
-      "commit_count": 3,
-      "date": "2026-05-19T07:00:00Z"
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-28T07:00:00Z"
     },
     {
-      "repo": "SainsburyWellcomeCentre/aeon_docs",
-      "commit_count": 2,
-      "date": "2026-04-14T07:00:00Z"
-    },
-    {
-      "repo": "SainsburyWellcomeCentre/aeon_docs",
-      "commit_count": 4,
-      "date": "2026-03-24T07:00:00Z"
-    },
-    {
-      "repo": "SainsburyWellcomeCentre/aeon_docs",
-      "commit_count": 3,
-      "date": "2026-03-23T07:00:00Z"
-    },
-    {
-      "repo": "SainsburyWellcomeCentre/aeon_docs",
-      "commit_count": 2,
-      "date": "2026-03-19T07:00:00Z"
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-27T07:00:00Z"
     },
     {
       "repo": "neuroinformatics-unit/movement",
@@ -674,6 +727,66 @@
       "date": "2026-03-09T07:00:00Z"
     },
     {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 3,
+      "date": "2026-05-19T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 2,
+      "date": "2026-04-14T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 4,
+      "date": "2026-03-24T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 3,
+      "date": "2026-03-23T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 2,
+      "date": "2026-03-19T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-27T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-26T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-14T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-12T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-04-28T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 2,
+      "date": "2026-03-25T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-05-21T07:00:00Z"
+    },
+    {
       "repo": "SainsburyWellcomeCentre/aeon_mecha",
       "commit_count": 2,
       "date": "2026-05-14T07:00:00Z"
@@ -699,26 +812,6 @@
       "date": "2026-04-20T07:00:00Z"
     },
     {
-      "repo": "neuroinformatics-unit/poseinterface",
-      "commit_count": 1,
-      "date": "2026-05-14T07:00:00Z"
-    },
-    {
-      "repo": "neuroinformatics-unit/poseinterface",
-      "commit_count": 1,
-      "date": "2026-05-12T07:00:00Z"
-    },
-    {
-      "repo": "neuroinformatics-unit/poseinterface",
-      "commit_count": 1,
-      "date": "2026-04-28T07:00:00Z"
-    },
-    {
-      "repo": "neuroinformatics-unit/poseinterface",
-      "commit_count": 2,
-      "date": "2026-03-25T07:00:00Z"
-    },
-    {
       "repo": "neuroinformatics-unit/sphinx-deployment-test",
       "commit_count": 5,
       "date": "2026-04-13T07:00:00Z"
@@ -739,6 +832,11 @@
       "date": "2026-04-16T07:00:00Z"
     },
     {
+      "repo": "talmolab/sleap-io",
+      "commit_count": 1,
+      "date": "2026-05-21T07:00:00Z"
+    },
+    {
       "repo": "tox-dev/sphinx-autodoc-typehints",
       "commit_count": 1,
       "date": "2026-05-04T07:00:00Z"
@@ -748,5 +846,231 @@
       "commit_count": 1,
       "date": "2026-03-18T07:00:00Z"
     }
-  ]
+  ],
+  "repo_commits": {
+    "neuroinformatics-unit/poseinterface": [
+      {
+        "sha": "1e38d7f",
+        "date": "2026-05-27T15:07:42Z",
+        "author": "Chang Huan Lo",
+        "message": "Pin sleap-io>=0.7.1 (#55)"
+      },
+      {
+        "sha": "24e4a37",
+        "date": "2026-05-26T18:05:01Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Add installation instructions in README (#54)"
+      },
+      {
+        "sha": "f3a141c",
+        "date": "2026-05-26T15:53:44Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Update example for converting DLC project to benchmark (v2) (#49)"
+      },
+      {
+        "sha": "2e72f28",
+        "date": "2026-05-14T10:30:13Z",
+        "author": "sfmig",
+        "message": "Convert predictions to cliplabels.json using movement (#45)"
+      },
+      {
+        "sha": "14b19b3",
+        "date": "2026-05-13T17:03:38Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Add project overview image to homepage (#51)"
+      },
+      {
+        "sha": "42ac536",
+        "date": "2026-05-12T22:20:26Z",
+        "author": "sfmig",
+        "message": "Format videos to `poseinterface` spec. Extract clip function. (#39)"
+      },
+      {
+        "sha": "2881508",
+        "date": "2026-05-12T21:07:30Z",
+        "author": "Chang Huan Lo",
+        "message": "Refactor `annotations_to_coco` (#26)"
+      },
+      {
+        "sha": "b158210",
+        "date": "2026-04-28T08:41:29Z",
+        "author": "Chang Huan Lo",
+        "message": "Migrate dev and docs from optional dependencies to PEP 735 dependency groups (#46)"
+      },
+      {
+        "sha": "abb95bf",
+        "date": "2026-03-31T19:45:20Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Spec: clarify contributed vs published datasets and minor improvements (#42)"
+      },
+      {
+        "sha": "7349d05",
+        "date": "2026-03-26T19:30:41Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Update website structure and project metadata (#37)"
+      },
+      {
+        "sha": "849f26a",
+        "date": "2026-03-25T11:27:35Z",
+        "author": "Niko Sirmpilatze",
+        "message": "redirect base URL to poseinterface.neuroinformatics.dev (#36)"
+      },
+      {
+        "sha": "fa975c1",
+        "date": "2026-03-25T11:10:44Z",
+        "author": "Chang Huan Lo",
+        "message": "Standardise make files (#35)"
+      },
+      {
+        "sha": "8f17ad7",
+        "date": "2026-03-25T11:03:54Z",
+        "author": "Niko Sirmpilatze",
+        "message": "Spec: support clip start labels (`startlabels.json`) (#34)"
+      }
+    ],
+    "SainsburyWellcomeCentre/aeon_mecha": [
+      {
+        "sha": "624b48a",
+        "date": "2026-05-22T09:59:50Z",
+        "author": "dependabot[bot]",
+        "message": "chore(deps): bump docker/setup-qemu-action from 1 to 4"
+      },
+      {
+        "sha": "1f7b708",
+        "date": "2026-05-22T09:59:33Z",
+        "author": "dependabot[bot]",
+        "message": "chore(deps): bump docker/login-action from 1 to 4"
+      },
+      {
+        "sha": "ff4990a",
+        "date": "2026-05-22T09:59:15Z",
+        "author": "dependabot[bot]",
+        "message": "chore(deps): bump docker/build-push-action from 2 to 7"
+      },
+      {
+        "sha": "83d861c",
+        "date": "2026-05-22T09:58:14Z",
+        "author": "dependabot[bot]",
+        "message": "chore(deps): bump docker/setup-buildx-action from 1 to 4"
+      },
+      {
+        "sha": "4249e97",
+        "date": "2026-05-22T09:27:39Z",
+        "author": "dependabot[bot]",
+        "message": "chore(deps): bump actions/checkout from 2 to 6 in the actions group"
+      },
+      {
+        "sha": "834577e",
+        "date": "2026-05-21T15:22:59Z",
+        "author": "Elissa Sutlief",
+        "message": "Ephys pipeline end2end testing, fixes and runbooks (#564)"
+      },
+      {
+        "sha": "809f511",
+        "date": "2026-05-14T19:00:10Z",
+        "author": "Chang Huan Lo",
+        "message": "Combine lint and test workflows (#550)"
+      },
+      {
+        "sha": "512b221",
+        "date": "2026-05-14T18:59:56Z",
+        "author": "Chang Huan Lo",
+        "message": "Configure Dependabot for GitHub Actions (#556)"
+      },
+      {
+        "sha": "c5bba34",
+        "date": "2026-05-11T21:48:31Z",
+        "author": "Thinh Nguyen",
+        "message": "Add EnvironmentState, MessageLog, LightEvents tables to acquisition (#561)"
+      },
+      {
+        "sha": "8cc43ec",
+        "date": "2026-04-30T13:55:30Z",
+        "author": "Thinh Nguyen",
+        "message": "Refactor flatten_rig_devices to use typed Pydantic Rig (#558)"
+      },
+      {
+        "sha": "2314c28",
+        "date": "2026-04-30T02:04:44Z",
+        "author": "Elissa Sutlief",
+        "message": "Follow-up fixes for v0.4.0 merge (#557)"
+      },
+      {
+        "sha": "c50f0ec",
+        "date": "2026-04-27T15:04:37Z",
+        "author": "Chang Huan Lo",
+        "message": "Upgrade DataJoint from 0.14.x to 2.x (#554)"
+      },
+      {
+        "sha": "9ce7ec8",
+        "date": "2026-04-21T13:21:04Z",
+        "author": "Chang Huan Lo",
+        "message": "Migrate pipeline metadata ingestion from dotmap device schemas to Pydantic (#551)"
+      },
+      {
+        "sha": "da3c3ca",
+        "date": "2026-04-20T16:35:46Z",
+        "author": "Chang Huan Lo",
+        "message": "Add ephys pipeline (#548)"
+      }
+    ]
+  },
+  "repo_releases": {
+    "SainsburyWellcomeCentre/aeon_mecha": [
+      {
+        "tag": "v0.2.0",
+        "name": "v0.2.0: Add ephys pipeline",
+        "published_at": "2026-04-14T22:40:02Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.2.0",
+        "type": "release",
+        "prerelease": false,
+        "draft": false
+      },
+      {
+        "tag": "v0.3.0",
+        "name": "v0.3.0",
+        "published_at": "2026-04-21T16:42:45Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.3.0",
+        "type": "release",
+        "prerelease": false,
+        "draft": false
+      },
+      {
+        "tag": "v0.4.0",
+        "name": "v0.4.0",
+        "published_at": "2026-04-28T19:26:26Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.4.0",
+        "type": "release",
+        "prerelease": false,
+        "draft": false
+      },
+      {
+        "tag": "v0.4.1",
+        "name": "v0.4.1",
+        "published_at": "2026-04-30T13:55:30Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.4.1",
+        "type": "tag",
+        "prerelease": false,
+        "draft": false
+      },
+      {
+        "tag": "v0.4.2",
+        "name": "v0.4.2",
+        "published_at": "2026-05-11T21:48:31Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.4.2",
+        "type": "tag",
+        "prerelease": false,
+        "draft": false
+      },
+      {
+        "tag": "v0.4.3",
+        "name": "v0.4.3",
+        "published_at": "2026-05-21T15:25:01Z",
+        "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/releases/tag/v0.4.3",
+        "type": "release",
+        "prerelease": false,
+        "draft": false
+      }
+    ]
+  }
 }
