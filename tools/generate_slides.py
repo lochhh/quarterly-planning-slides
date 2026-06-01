@@ -191,11 +191,6 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
                 lines.append(f"- {item}")
         subslides.extend(split_subslide("\n".join(lines)))
 
-    if carry_overs:
-        lines = ["**Carry-overs / in progress**\n"]
-        for item in carry_overs:
-            lines.append(f"- 🔄 {item}")
-        subslides.extend(split_subslide("\n".join(lines)))
 
     return subslides
 
