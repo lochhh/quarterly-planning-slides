@@ -99,13 +99,13 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
         subslides.append("\n".join(lines))
 
     if unplanned:
-        lines = [f"## Last Quarter — {project} (cont.)\n", "**Unplanned / additional**\n"]
+        lines = ["**Unplanned / additional**\n"]
         for item in unplanned:
             lines.append(f"- {item}")
         subslides.append("\n".join(lines))
 
     if carry_overs:
-        lines = [f"## Last Quarter — {project} (cont.)\n", "**Carry-overs / in progress**\n"]
+        lines = ["**Carry-overs / in progress**\n"]
         for item in carry_overs:
             lines.append(f"- 🔄 {item}")
         subslides.append("\n".join(lines))
@@ -136,8 +136,6 @@ def render(github: dict, quarterly: dict, qa: dict, meeting_date: str | None = N
     sections = []
 
     sections.append(build_title_slide(title_date))
-    sections.append(build_time_allocation_slide(quarterly))
-
     for project in PROJECTS:
         subslides = build_project_slides(project, quarterly, github, qa)
         if subslides:
