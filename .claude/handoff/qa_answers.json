@@ -1,0 +1,95 @@
+{
+  "projects": {
+    "Aeon": {
+      "deliverable_status": {
+        "image improvements (dark mode, sizing)": "done",
+        "rename and redirect sample datasets page": "done",
+        "ephys pipeline": "done",
+        "use aeon_api pydantic models": "done",
+        "aeon_mecha v0.3.0": "done",
+        "tests for analysis modules": "in_progress",
+        "ARC-DJ (support)": "partial",
+        "build infrastructure on swc hpc": "done",
+        "ingest full social data": "in_progress"
+      },
+      "unplanned": [
+        "aeon_docs: SVG dark/light mode rendering (PR #246)",
+        "aeon_docs: strip inline HTML from nav titles (PR #252)",
+        "aeon_docs: fix broken/redirected URLs (PRs #247, #574)",
+        "aeon_docs: pixi + pyproject.toml migration (PR #253, open)",
+        "aeon_mecha: v0.4.0–v0.4.3 (DJ2.x migration + patches)",
+        "aeon_mecha: DJ test isolation + Dependabot + CI workflow consolidation",
+        "aeon_mecha: reorganise tests + ephys test factories (PR #576)",
+        "aeon_exp_foragingABC: NumPy 2 / Python 3.13 support (PR #70, open)"
+      ],
+      "carry_overs": [
+        "Ingest full social data (ARC-DJ RHEL VM ready; ingestion pending)",
+        "Merge aeon_api PR #82 — tests coverage 78% → 99% (pending review)",
+        "aeon_docs pixi + pyproject.toml migration (PR #253)"
+      ],
+      "priorities": [
+        "Ingest full social data via ARC-DJ RHEL VM",
+        "Merge aeon_api PR #82 (test coverage 78% → 99%)",
+        "Ephys data compression",
+        "Support xarray in aeon_api / aeon_mecha (TBD)"
+      ],
+      "extra_notes": "v0.3.0 (Pydantic migration) and v0.4.0 (DataJoint 2.x syntax) delivered as a planned pair. v0.4.1–v0.4.3 are follow-up patches. ARC-DJ infra: private repo UCL-ARC/SWC-aeon-datajoint, RHEL VM set up."
+    },
+    "Movement": {
+      "deliverable_status": {
+        "Help COCO keypoints loading PR get merged": "done",
+        "Removing types from docstrings": "done",
+        "Ruthlessly cut down number of open PRs": "partial"
+      },
+      "unplanned": [
+        "PEP 695 TypeAliasType workaround (PR #969) + upstream fix merged (tox-dev PR #691)",
+        "sphinx-autodoc-typehints pin (PR #1016, open)",
+        "PEP 735 dev+docs migration (PR #956)",
+        "User warnings → warnings.warn refactor (PR #976)",
+        "Pre-commit hook: prevent hardcoded website URLs (PR #1010)",
+        "Fork PR review suggestions (ishan372or, merged 2026-05-27)",
+        "neuroinformatics-unit/actions: 404.html fix + PEP 735 docs group support",
+        "External upstream: sleap-io empty frame fix merged (talmolab PR #418)"
+      ],
+      "carry_overs": [
+        "Open PR count: 80+ → 60+ (target: continue reducing)",
+        "sphinx-autodoc-typehints pin PR #1016 (open)"
+      ],
+      "priorities": [
+        "Support loading COCO keypoint annotations (PR #818 closed; new direction)",
+        "Support individual-wise confidence scores",
+        "Continue reducing open PRs (currently 60+)"
+      ],
+      "extra_notes": "COCO results loading PR #818 closed — out of scope. Pivot: loading annotations + confidence scores. PR count reduced from 80+ to 60+ this quarter."
+    },
+    "PoseInterface": {
+      "deliverable_status": {
+        "Extract clips and corresponding cliplabels.json": "done",
+        "Utilities to extract clip(s) from video (minimally an example)": "done",
+        "Convert SLEAP/DLC predictions to COCO.json": "partial",
+        "Upload 2 sessions from SWC (1 train / 1 test)": "not_done",
+        "Clarify relationship / scope with ethology": "not_done"
+      },
+      "unplanned": [
+        "Makefile standardisation (CH, PR #35)",
+        "PEP 735 migration (CH, PR #46)",
+        "sleap-io pin >=0.7.1 — unblocked COCO pipeline (CH, PR #55)",
+        "DLC benchmark example + README (Niko)",
+        "Website structure + project homepage image (Niko)",
+        "Overview figure for website",
+        "About section for website (mission + people)"
+      ],
+      "carry_overs": [
+        "Upload 2 SWC sessions (1 train / 1 test)",
+        "Clarify relationship / scope with ethology",
+        "Complete COCO.json conversion pipeline"
+      ],
+      "priorities": [
+        "NS: Upload 2 SWC sessions to bucket",
+        "All: Help LP conversion work (reactive — depends on IBL/AIND effort)",
+        "Maintenance: SM removes movement ref in contributing guide; SM reorganises fixtures (CH review)"
+      ],
+      "extra_notes": "Core data pipeline delivered by team (clips, cliplabels, video utilities). sleap-io upstream fix unblocked COCO pipeline."
+    }
+  }
+}
