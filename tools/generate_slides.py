@@ -84,8 +84,10 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
 
     if ch_deliverables:
         lines = [f"## Last Quarter — {project}\n", "**Planned**\n"]
+        in_group = False
         for d in ch_deliverables:
             text = d["text"]
+            is_group_header = text.strip().startswith("`") or strip_md(text).startswith("ARC-DJ")
             plain = strip_md(text).lower()
             matched_status = ""
             for key, val in status_map.items():
@@ -95,13 +97,29 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
                     break
             emoji = STATUS_EMOJI.get(matched_status, "")
             prefix = f"{emoji} " if emoji else ""
-            lines.append(f"- {prefix}{strip_md(text)}")
+            display = strip_md(text) if not is_group_header else text
+            if is_group_header:
+                lines.append(f"- {display}")
+                in_group = True
+            else:
+                indent = "  " if in_group else ""
+                lines.append(f"{indent}- {prefix}{display}")
         subslides.append("\n".join(lines))
 
     if unplanned:
-        lines = ["**Unplanned / additional**\n"]
+        lines = ["**Unplanned**\n"]
+        current_group = None
         for item in unplanned:
-            lines.append(f"- {item}")
+            if ": " in item:
+                group, _, detail = item.partition(": ")
+                if group != current_group:
+                    label = f"`{group}`" if ("_" in group or "/" in group) else group
+                    lines.append(f"- {label}")
+                    current_group = group
+                lines.append(f"  - {detail}")
+            else:
+                current_group = None
+                lines.append(f"- {item}")
         subslides.append("\n".join(lines))
 
     if carry_overs:
