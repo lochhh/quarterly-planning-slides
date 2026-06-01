@@ -14,7 +14,22 @@ import urllib.error
 from pathlib import Path
 
 
+def _load_dotenv() -> None:
+    """Load .env walking up from cwd, stopping at repo root (.git)."""
+    for candidate in [Path.cwd(), *Path.cwd().parents]:
+        if (candidate / ".env").exists():
+            for line in (candidate / ".env").read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, _, val = line.partition("=")
+                    os.environ.setdefault(key.strip(), val.strip())
+            return
+        if (candidate / ".git").exists():
+            return  # reached repo root without finding .env
+
+
 def main():
+    _load_dotenv()
     if len(sys.argv) != 3:
         print(f"Usage: {sys.argv[0]} <local_file> <note_id|--create>", file=sys.stderr)
         sys.exit(1)
