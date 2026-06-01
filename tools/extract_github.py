@@ -13,6 +13,8 @@ Usage:
 
 Output:
     .claude/handoff/github_activity.json
+    Keys: pull_requests, issues, commits (author mode)
+          repo_commits, repo_releases (repo mode; repo_releases only if releases exist)
 """
 
 import argparse
@@ -26,7 +28,7 @@ EXCLUDED_REPOS = {"e-babylab", "claude-code-slides", "quarterly-planning-slides"
 OUTPUT_PATH = Path(".claude/handoff/github_activity.json")
 
 
-def run_gh(args: list[str]) -> list[dict]:
+def run_gh(args: list[str]) -> list[dict] | dict:
     cmd = ["gh"] + args
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
@@ -173,6 +175,82 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
     return commits
 
 
+def extract_releases(repo: str, start: str, search_end: str) -> list[dict]:
+    """Fetch releases AND tags published in the date range for a repo.
+
+    GitHub releases (/releases) only cover formal release pages. Raw git tags
+    (/tags) are checked separately; each tag's commit date is resolved via one
+    extra API call. Tags already covered by a release are deduplicated.
+    """
+    start_dt = datetime.strptime(start, "%Y-%m-%d")
+    end_dt = datetime.strptime(search_end, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+    results = []
+    seen_tags: set[str] = set()
+
+    # 1. Formal GitHub releases
+    raw_releases = run_gh_paginate([
+        "api", f"repos/{repo}/releases",
+        "--method", "GET",
+        "-F", "per_page=100",
+    ])
+    for item in raw_releases:
+        published = item.get("published_at") or item.get("created_at")
+        if not published:
+            continue
+        pub_dt = datetime.strptime(published[:19], "%Y-%m-%dT%H:%M:%S")
+        if start_dt <= pub_dt <= end_dt:
+            results.append({
+                "tag": item["tag_name"],
+                "name": item.get("name") or item["tag_name"],
+                "published_at": published,
+                "url": item["html_url"],
+                "type": "release",
+                "prerelease": item.get("prerelease", False),
+                "draft": item.get("draft", False),
+            })
+            seen_tags.add(item["tag_name"])
+
+    # 2. Raw git tags (covers tags without a release page)
+    raw_tags = run_gh_paginate([
+        "api", f"repos/{repo}/tags",
+        "--method", "GET",
+        "-F", "per_page=100",
+    ])
+    for tag in raw_tags:
+        tag_name = tag["name"]
+        if tag_name in seen_tags:
+            continue
+        # Resolve commit date (one extra call per unmatched tag)
+        sha = tag["commit"]["sha"]
+        try:
+            commit_data = run_gh([
+                "api", f"repos/{repo}/commits/{sha}",
+                "--method", "GET",
+            ])
+        except SystemExit:
+            continue
+        committed = (
+            commit_data.get("commit", {}).get("committer", {}).get("date")
+            or commit_data.get("commit", {}).get("author", {}).get("date")
+        )
+        if not committed:
+            continue
+        tag_dt = datetime.strptime(committed[:19], "%Y-%m-%dT%H:%M:%S")
+        if start_dt <= tag_dt <= end_dt:
+            results.append({
+                "tag": tag_name,
+                "name": tag_name,
+                "published_at": committed,
+                "url": f"https://github.com/{repo}/releases/tag/{tag_name}",
+                "type": "tag",
+                "prerelease": False,
+                "draft": False,
+            })
+
+    results.sort(key=lambda r: r["published_at"])
+    return results
+
+
 def extract_repo_commits(repo: str, start: str, search_end: str, branch: str = "main") -> list[dict]:
     """Fetch all commits to a repo's branch in the date range, any author."""
     raw = run_gh_paginate([
@@ -231,11 +309,18 @@ def main():
 
     if args.repos:
         repo_commits: dict[str, list[dict]] = {}
+        repo_releases: dict[str, list[dict]] = {}
         for repo in args.repos:
             print(f"Extracting all commits for {repo} ({args.branch}): {args.start} -> {search_end}")
             repo_commits[repo] = extract_repo_commits(repo, args.start, search_end, args.branch)
             print(f"  Found: {len(repo_commits[repo])} commits")
+            releases = extract_releases(repo, args.start, search_end)
+            if releases:
+                repo_releases[repo] = releases
+                print(f"  Found: {len(releases)} release(s): {', '.join(r['tag'] for r in releases)}")
         output["repo_commits"] = repo_commits
+        if repo_releases:
+            output["repo_releases"] = repo_releases
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(output, indent=2), encoding="utf-8")
