@@ -17,7 +17,7 @@ Propagate local content to a HackMD note.
 
 | Local file               | Note ID                 |
 |--------------------------|-------------------------|
-| deliverables/slides-2026-06-01.md | WTLXst8MSuavlX7zSxX8EQ |
+| deliverables/slides-2026-06-02.md | WTLXst8MSuavlX7zSxX8EQ |
 
 ## What to do
 

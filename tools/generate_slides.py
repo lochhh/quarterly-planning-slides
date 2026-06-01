@@ -64,7 +64,8 @@ def build_time_allocation_slide(quarterly: dict) -> str:
     return "\n".join(lines)
 
 
-def build_project_slide(project: str, quarterly: dict, github: dict, qa: dict) -> str:
+def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) -> list[str]:
+    """Return a list of subslide strings for a project (joined with ---- by caller)."""
     proj_data = quarterly["projects"].get(project, {})
     all_deliverables = proj_data.get("deliverables", [])
 
@@ -79,10 +80,10 @@ def build_project_slide(project: str, quarterly: dict, github: dict, qa: dict) -
     unplanned = proj_qa.get("unplanned", [])
     carry_overs = proj_qa.get("carry_overs", [])
 
-    lines = [f"## Last Quarter — {project}\n"]
+    subslides = []
 
     if ch_deliverables:
-        lines.append("**Planned**\n")
+        lines = [f"## Last Quarter — {project}\n", "**Planned**\n"]
         for d in ch_deliverables:
             text = d["text"]
             plain = strip_md(text).lower()
@@ -95,20 +96,21 @@ def build_project_slide(project: str, quarterly: dict, github: dict, qa: dict) -
             emoji = STATUS_EMOJI.get(matched_status, "")
             prefix = f"{emoji} " if emoji else ""
             lines.append(f"- {prefix}{strip_md(text)}")
-        lines.append("")
+        subslides.append("\n".join(lines))
 
     if unplanned:
-        lines.append("**Unplanned / additional**\n")
+        lines = [f"## Last Quarter — {project} (cont.)\n", "**Unplanned / additional**\n"]
         for item in unplanned:
             lines.append(f"- {item}")
-        lines.append("")
+        subslides.append("\n".join(lines))
 
     if carry_overs:
-        lines.append("**Carry-overs / in progress**\n")
+        lines = [f"## Last Quarter — {project} (cont.)\n", "**Carry-overs / in progress**\n"]
         for item in carry_overs:
             lines.append(f"- 🔄 {item}")
+        subslides.append("\n".join(lines))
 
-    return "\n".join(lines)
+    return subslides
 
 
 def build_priorities_slides(qa: dict) -> list[str]:
@@ -128,15 +130,18 @@ def build_priorities_slides(qa: dict) -> list[str]:
     return slides
 
 
-def render(github: dict, quarterly: dict, qa: dict) -> str:
+def render(github: dict, quarterly: dict, qa: dict, meeting_date: str | None = None) -> str:
     end_date = github["period"]["end"]
+    title_date = meeting_date or end_date
     sections = []
 
-    sections.append(build_title_slide(end_date))
+    sections.append(build_title_slide(title_date))
     sections.append(build_time_allocation_slide(quarterly))
 
     for project in PROJECTS:
-        sections.append(build_project_slide(project, quarterly, github, qa))
+        subslides = build_project_slides(project, quarterly, github, qa)
+        if subslides:
+            sections.append("\n\n----\n\n".join(subslides))
 
     priority_slides = build_priorities_slides(qa)
     if priority_slides:
@@ -152,6 +157,7 @@ def main():
     parser.add_argument("--quarterly-data", default=".claude/handoff/quarterly_notes.json")
     parser.add_argument("--qa-data", default=".claude/handoff/qa_answers.json")
     parser.add_argument("--output", default=None, help="Output path (derived from end date if omitted)")
+    parser.add_argument("--meeting-date", default=None, help="Date shown on title slide YYYY-MM-DD (defaults to end date)")
     args = parser.parse_args()
 
     github = json.loads(Path(args.github_data).read_text(encoding="utf-8"))
@@ -159,10 +165,11 @@ def main():
     qa = json.loads(Path(args.qa_data).read_text(encoding="utf-8"))
 
     end_date = github["period"]["end"]
-    output_path = Path(args.output) if args.output else Path(f"deliverables/slides-{end_date}.md")
+    file_date = args.meeting_date or end_date
+    output_path = Path(args.output) if args.output else Path(f"deliverables/slides-{file_date}.md")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(render(github, quarterly, qa), encoding="utf-8")
+    output_path.write_text(render(github, quarterly, qa, args.meeting_date), encoding="utf-8")
     print(f"Slides written to {output_path}")
 
 

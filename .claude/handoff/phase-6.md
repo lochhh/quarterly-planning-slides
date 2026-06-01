@@ -2,7 +2,7 @@
 
 ## Published
 
-- **Local file**: `deliverables/slides-2026-06-01.md`
+- **Local file**: `deliverables/slides-2026-06-02.md`
 - **HackMD URL**: https://hackmd.io/@lochhh/HymhI7jgMg
 - **Note ID**: `WTLXst8MSuavlX7zSxX8EQ`
 
