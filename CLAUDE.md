@@ -51,6 +51,7 @@
 ### Phase 6 — Publication Phase
 - Present the final slide deck to the user.
 - Sync to HackMD only after explicit approval using the `sync-hackmd` skill.
+- HackMD API token is in .env
 
 ---
 
