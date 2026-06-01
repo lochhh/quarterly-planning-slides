@@ -50,6 +50,75 @@ def strip_md(text: str) -> str:
     return text.strip()
 
 
+MAX_VISUAL_LINES = 6
+
+
+def _visual_weight(line: str) -> int:
+    """Estimate display lines: blank=0, long line=2, else 1."""
+    stripped = line.strip()
+    if not stripped:
+        return 0
+    return 2 if len(stripped) > 80 else 1
+
+
+def _find_header_end(lines: list[str]) -> int:
+    """Index of first top-level bullet line (start of content)."""
+    for i, line in enumerate(lines):
+        if line.startswith("- "):
+            return i
+    return len(lines)
+
+
+def split_subslide(text: str, max_lines: int = MAX_VISUAL_LINES) -> list[str]:
+    """Split a subslide's content if it exceeds max_lines, no repeated headers."""
+    lines = text.split("\n")
+    header_end = _find_header_end(lines)
+    header = lines[:header_end]
+    content = lines[header_end:]
+
+    if sum(_visual_weight(l) for l in content) <= max_lines:
+        return [text]
+
+    chunks: list[list[str]] = []
+    current: list[str] = []
+    visual = 0
+
+    for line in content:
+        w = _visual_weight(line)
+        if visual + w > max_lines and current:
+            # Don't break mid-group: if next line is indented, back up to last top-level bullet
+            if line.startswith("  -"):
+                # find last top-level bullet in current and split there
+                split_at = next(
+                    (j for j in range(len(current) - 1, -1, -1) if current[j].startswith("- ")),
+                    None,
+                )
+                if split_at is not None:
+                    chunks.append(current[:split_at])
+                    current = current[split_at:]
+                    visual = sum(_visual_weight(l) for l in current)
+                else:
+                    chunks.append(current)
+                    current = []
+                    visual = 0
+            else:
+                # 6th line is a top-level bullet — move to next slide
+                chunks.append(current)
+                current = []
+                visual = 0
+        current.append(line)
+        visual += w
+
+    if current:
+        chunks.append(current)
+
+    result = []
+    for i, chunk in enumerate(chunks):
+        slide_lines = (header + chunk) if i == 0 else chunk
+        result.append("\n".join(slide_lines))
+    return result
+
+
 def build_title_slide(end_date: str) -> str:
     return f"# NIU Quarterly Planning\n\n{fmt_date(end_date)}\n\nChang Huan Lo"
 
@@ -104,7 +173,7 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
             else:
                 indent = "  " if in_group else ""
                 lines.append(f"{indent}- {prefix}{display}")
-        subslides.append("\n".join(lines))
+        subslides.extend(split_subslide("\n".join(lines)))
 
     if unplanned:
         lines = ["**Unplanned**\n"]
@@ -120,32 +189,30 @@ def build_project_slides(project: str, quarterly: dict, github: dict, qa: dict) 
             else:
                 current_group = None
                 lines.append(f"- {item}")
-        subslides.append("\n".join(lines))
+        subslides.extend(split_subslide("\n".join(lines)))
 
     if carry_overs:
         lines = ["**Carry-overs / in progress**\n"]
         for item in carry_overs:
             lines.append(f"- 🔄 {item}")
-        subslides.append("\n".join(lines))
+        subslides.extend(split_subslide("\n".join(lines)))
 
     return subslides
 
 
-def build_priorities_slides(qa: dict) -> list[str]:
-    slides = []
-    for project in PROJECTS:
-        proj_qa = qa["projects"].get(project, {})
-        priorities = proj_qa.get("priorities", [])
-        if not priorities:
-            continue
-        lines = [f"## Next Quarter — {project}\n"]
-        for p in priorities:
-            lines.append(f"- {p}")
-        extra = proj_qa.get("extra_notes", "").strip()
-        if extra:
-            lines.append(f"\n_{extra}_")
-        slides.append("\n".join(lines))
-    return slides
+
+def build_next_quarter_slide(project: str, qa: dict) -> str | None:
+    proj_qa = qa["projects"].get(project, {})
+    priorities = proj_qa.get("priorities", [])
+    if not priorities:
+        return None
+    lines = [f"## Next Quarter — {project}\n"]
+    for p in priorities:
+        lines.append(f"- {p}")
+    extra = proj_qa.get("extra_notes", "").strip()
+    if extra:
+        lines.append(f"\n_{extra}_")
+    return "\n".join(lines)
 
 
 def render(github: dict, quarterly: dict, qa: dict, meeting_date: str | None = None) -> str:
@@ -154,14 +221,14 @@ def render(github: dict, quarterly: dict, qa: dict, meeting_date: str | None = N
     sections = []
 
     sections.append(build_title_slide(title_date))
+
     for project in PROJECTS:
         subslides = build_project_slides(project, quarterly, github, qa)
+        next_q = build_next_quarter_slide(project, qa)
+        if next_q:
+            subslides.append(next_q)
         if subslides:
             sections.append("\n\n----\n\n".join(subslides))
-
-    priority_slides = build_priorities_slides(qa)
-    if priority_slides:
-        sections.append("\n\n----\n\n".join(priority_slides))
 
     body = "\n\n---\n\n".join(sections)
     return f"{FRONTMATTER}\n\n{body}\n"

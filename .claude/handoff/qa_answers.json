@@ -76,8 +76,7 @@
         "sleap-io pin >=0.7.1 — unblocked COCO pipeline (CH, PR #55)",
         "DLC benchmark example + README (Niko)",
         "Website structure + project homepage image (Niko)",
-        "Overview figure for website",
-        "About section for website (mission + people)"
+        "Overview figure + About section for website (mission + people)"
       ],
       "carry_overs": [
         "Upload 2 SWC sessions (1 train / 1 test)",
