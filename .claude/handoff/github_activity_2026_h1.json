@@ -1,0 +1,1316 @@
+{
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-06-22",
+    "search_end": "2026-06-22"
+  },
+  "pull_requests": [
+    {
+      "title": "Suggestions for PR #589",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/590",
+      "state": "merged",
+      "merged_at": "2026-06-21T17:39:58Z",
+      "body": "Review suggestions for #589. \r\n\r\n- Lint & formatting cleanup across changed files\r\n  - consistent indentation, trailing commas, whitespace, docstrings moved to PEP 257 style\r\n  - Modern type annotations: replace `Dict`, `List`, `Tuple`, `Optional` with `dict`, `list`, `tuple` builtins; add `Iterator` from `collections.abc`\r\n  - Stricter iteration: add `strict=True/False` to `zip()` calls; replace bare `assert` with `ValueError` for runtime checks\r\n  - Remove unused  `from spikeinterface import s"
+    },
+    {
+      "title": "Pin `sphinx-autodoc-typehints>=3.10.4`",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/1016",
+      "state": "merged",
+      "merged_at": "2026-06-01T17:22:58Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #975 \r\n\r\n**What does this PR do?**\r\n- Upstream PR to fix TypeAliasType issues (#958) has been released, sets an upper pin to the latest `sphinx-autodoc-typehints` version\r\n- Removes the workaround added in #969\r\n\r\n## How has this PR been tested?\r\nLocal docs build\r\n\r\n## Checklist:\r\n\r\n- [x] The code has been tested locally\r\n- [ ] Tests have been added to cover "
+    },
+    {
+      "title": "Add pre-commit hook to prevent hardcoded movement website references in docs",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/1010",
+      "state": "merged",
+      "merged_at": "2026-05-28T09:48:10Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #645 \r\n\r\nA simpler alternative to #765 that uses pre-commit to catch hardcoded movement website references in all files in docs, except for conf.py.\r\n\r\n## How has this PR been tested?\r\ncommit fails when I try to add https://movement.neuroinformatics.dev/latest/examples/index.html in docs/source/index.md\r\n<img width=\"1047\" height=\"191\" alt=\"image\" src=\"https:/"
+    },
+    {
+      "title": "Pin sleap-io>=0.7.1",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/55",
+      "state": "merged",
+      "merged_at": "2026-05-27T15:07:42Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #44 \r\n\r\n**What does this PR do?**\r\nThe issue is resolved upstream in [sleap-io v0.7.1](https://github.com/talmolab/sleap-io/releases/tag/v0.7.1).\r\nThis PR updates the sleap-io upper pin in pyproject.toml to v0.7.1\r\n\r\n## How has this PR been tested?\r\npytest passes with the minimal reproduction example in #44 \r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested "
+    },
+    {
+      "title": "PR 989 review suggestions",
+      "repo": "ishan372or/movement",
+      "url": "https://github.com/ishan372or/movement/pull/1",
+      "state": "merged",
+      "merged_at": "2026-05-27T05:14:02Z",
+      "body": ""
+    },
+    {
+      "title": "Reorganise tests and ephys test factories",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/576",
+      "state": "merged",
+      "merged_at": "2026-05-21T13:50:27Z",
+      "body": "- Merged `test_onix_codec_integration.py` into `test_codec_integration.py`\r\n- Reorganised ephys test factories\r\n  - Renamed `tests/dj_pipeline/_synthetic_ephys_fixtures.py` to `tests/fixtures/ephys/ephys_factories.py`\r\n  - Updated imports in `test_onix_imu_pipeline_integration.py` and `test_codec_integration.py`\r\n- Update `pythonpath` in `pyproject.toml` to add `tests/fixtures/ephys` to sys.path when pytest runs - this lets tests import from the ephys fixtures dir without package prefix, e.g. `f"
+    },
+    {
+      "title": "Replace conda+requirements.txt setup with pixi+pyproject.toml",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/253",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "- Replaces conda and requirements.txt setup with pixi and pyproject.toml\r\n- Updates docs build instructions in contributing docs guide\r\n- Updates CI docs build workflow to use pixi"
+    },
+    {
+      "title": "Strip inline HTML from prev/next titles",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/252",
+      "state": "merged",
+      "merged_at": "2026-05-19T13:40:53Z",
+      "body": "Closes #251 \r\n\r\n- overrides `pydata-sphinx-theme`'s [components/prev-next.html](https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/layout.html#built-in-components-to-insert-into-sections) template to use Jinja2 [`striptags` filter](https://jinja.palletsprojects.com/en/stable/templates/#jinja-filters.striptags). This change only affects `aeon_acquisition` API reference.\r\n"
+    },
+    {
+      "title": "Update redirected DataJoint docs URLs to `latest` in querying data example",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/574",
+      "state": "merged",
+      "merged_at": "2026-05-19T10:44:03Z",
+      "body": "Closes https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/248"
+    },
+    {
+      "title": "Update broken and redirected URLs",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/247",
+      "state": "merged",
+      "merged_at": "2026-05-19T09:17:25Z",
+      "body": "- `squash_merge_to_prod.yml` has been removed in https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/550. Removed reference to this workflow file and updated PR workflow description accordingly.\r\n- Updated permanently redirected datajoint docs URLs to point to latest version\r\n\r\nresolves #249 "
+    },
+    {
+      "title": "Improve SVG rendering in light and dark mode",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/246",
+      "state": "merged",
+      "merged_at": "2026-05-19T11:08:10Z",
+      "body": "Closes #119 and #208 \r\n\r\n- SVGs with line art (transparent/white background, black/coloured lines) rendered with visible white boxes in both light and dark mode.\r\n  - In light mode: mix-blend-mode: multiply removes the baked-in white background so SVGs blend into the surrounding div.\r\n  - In dark mode: filter: invert(1) hue-rotate(180deg) turns black lines white; mix-blend-mode: screen dissolves the inverted black background. A background fix on .sd-card-hover:hover prevents the blend from break"
+    },
+    {
+      "title": "Test codecov behaviour",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/980",
+      "state": "closed",
+      "merged_at": "2026-05-27T10:46:48Z",
+      "body": ""
+    },
+    {
+      "title": "Redirect DataJoint attach downloads to tmp dir in tests and restrict populate calls to experiment being tested",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/573",
+      "state": "merged",
+      "merged_at": "2026-05-20T13:38:08Z",
+      "body": "When running integration tests for OnixImuChunk, two related issues cause .joblib files to accumulate in cwd:\r\n- OnixImuChunk.make() calls fetch1(\"sync_model\"), which extracts .joblib files to dj.config[\"download_path\"] (default is cwd) and these are never cleaned up after running the test suite\r\n- All populate() calls are unrestricted. Since MySQL container is session-scoped, EphysSyncModel rows inserted by one test are visible to populate() calls in other tests, causing make() to process rows "
+    },
+    {
+      "title": "Mock DJ for all tests marked \"unit\"",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/572",
+      "state": "merged",
+      "merged_at": "2026-05-20T13:38:29Z",
+      "body": "The current setup will only mock DataJoint when the tests are run with `-m unit`. \r\n\r\nRunning `uv run pytest tests/dj_pipeline/utils/test_stats_unit.py` for instance will result in the following error:\r\n> FAILED tests/dj_pipeline/utils/test_stats_unit.py::TestColumnStats::test_column_stats[numeric array] - pymysql.err.OperationalError: (2003, \"Can't connect to MySQL server on 'localhost' ([WinError 10061] No connection could be made because the targ...\r\n\r\nInstead of checking for the `-m` marker,"
+    },
+    {
+      "title": "Update codecov-action to v6 in CI workflow",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/85",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "- uses latest codecov action\r\n- also used for testing codecov upload behaviour\r\n(continuing #76 )"
+    },
+    {
+      "title": "Migrate `dev` from optional dependencies to PEP 735 dependency groups",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/84",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "Fixes #83 "
+    },
+    {
+      "title": "Add unit tests for analysis modules",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/82",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "This PR adds unit tests for all analysis modules.\r\nThis PR also fixes #81 (uncovered when adding unit test).\r\n\r\n## Questions\r\n- L81 and L86 below remain uncovered because the docstring states that `before` and `after` should be `pd.Timedelta`. Should we simplify by assuming `before` and `after` are `pd.Timedelta` and remove the `not isinstance` cases?\r\nhttps://github.com/SainsburyWellcomeCentre/aeon_api/blob/567bcfe4aa6b5a2ac19941b678787e489a04e199/src/swc/aeon/analysis/movies.py#L68-L86\r\n\r\n- in"
+    },
+    {
+      "title": "Add type hints and use google style docstrings in analysis modules",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/80",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": ""
+    },
+    {
+      "title": "User warning",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/976",
+      "state": "merged",
+      "merged_at": "2026-05-08T14:34:25Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nWhile reviewing #832 I was also checking for other `logger.warning` uses and identified a few cases which should be \"user-avoidable\" and should instead use `warnings.warn`.\r\n\r\n**What does this PR do?**\r\n- use `warnings.warn` in user-avoidable conditions and update affected tests\r\n- update contributing guide to include guidance on `logger.warning` usage\r\n\r\n## Referen"
+    },
+    {
+      "title": "Add team meeting presentation",
+      "repo": "neuroinformatics-unit/documentation",
+      "url": "https://github.com/neuroinformatics-unit/documentation/pull/314",
+      "state": "merged",
+      "merged_at": "2026-05-14T15:18:29Z",
+      "body": "tagging @JoeZiminski to review as you're next to present"
+    },
+    {
+      "title": "Support PEP 695 `type` statement and python 3.12+ `TypeAliasType`",
+      "repo": "tox-dev/sphinx-autodoc-typehints",
+      "url": "https://github.com/tox-dev/sphinx-autodoc-typehints/pull/691",
+      "state": "merged",
+      "merged_at": "2026-05-04T17:00:24Z",
+      "body": "Closes #690 \r\n\r\nThis PR\r\n- adds an `if isinstance(annotation, TypeAliasType):` branch in `format_annotation` to handle [typing.TypeAliasType](https://docs.python.org/3/library/typing.html#typing.TypeAliasType) introduced in python 3.12\r\n  - the logic is similar to how `TypeAliasForwardRef` is currently handled, extending that same lookup to all intermediate prefix levels, so aliases documented anywhere in the module hierarchy resolve correctly\r\n- adds, for external TypeAliasType (defined in a di"
+    },
+    {
+      "title": "Use custom `typehints_formatter` to handle PEP 695 `TypeAliasType`",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/969",
+      "state": "merged",
+      "merged_at": "2026-05-01T12:55:19Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [x] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #958 \r\n\r\n**What does this PR do?**\r\n- works around https://github.com/tox-dev/sphinx-autodoc-typehints/issues/690 using a custom `typehint_formatter` that automatically expands `TypeAliasType` instances to their underlying type(s), for external `TypeAliasType`, create a shortened cross-ref if intersphinx is configured, otherwise it's just the name of the `Typ"
+    },
+    {
+      "title": "Configure Dependabot for GitHub Actions monthly updates",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/556",
+      "state": "merged",
+      "merged_at": "2026-05-14T18:59:56Z",
+      "body": "Configure dependabot to check for GitHub Actions updates monthly."
+    },
+    {
+      "title": "Test build_sphinx_docs@migrate-extras",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/47",
+      "state": "closed",
+      "merged_at": "2026-04-28T09:42:10Z",
+      "body": "For testing https://github.com/neuroinformatics-unit/actions/pull/159\r\n\r\nDo not merge"
+    },
+    {
+      "title": "Fall back to `.[docs]` extras if `--group docs` fails",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/159",
+      "state": "merged",
+      "merged_at": "2026-04-28T08:39:49Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\n#158  introduces a breaking change in that existing `build_sphinx_docs` users (e.g. [neuroinformatics-unit/poseinterface](https://github.com/neuroinformatics-unit/poseinterface/blob/abb95bf26576bc840f8d0090d085b17b170a9da3/.github/workflows/docs_build_and_deploy.yml#L33), [brainglobe/brainglobe-data-api-connectivity](https://github.com/brainglobe/brainglobe-data-api"
+    },
+    {
+      "title": "Migrate dev and docs from optional dependencies to PEP 735 dependency groups",
+      "repo": "neuroinformatics-unit/ethology",
+      "url": "https://github.com/neuroinformatics-unit/ethology/pull/156",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "## References\r\nhttps://github.com/neuroinformatics-unit/movement/issues/955\r\n\r\n## How has this PR been tested?\r\nTested in https://github.com/neuroinformatics-unit/movement/pull/956\r\n\r\n## Does this PR require an update to the documentation?\r\nInstallation command has been updated.\r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added to cover all new functionality\r\n- [x] The documentation has been updated to reflect any changes\r\n- [x] The code has been formatted w"
+    },
+    {
+      "title": "Migrate dev and docs from optional dependencies to PEP 735 dependency groups",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/46",
+      "state": "merged",
+      "merged_at": "2026-04-28T08:41:29Z",
+      "body": "## References\r\nhttps://github.com/neuroinformatics-unit/movement/issues/955\r\n\r\n## How has this PR been tested?\r\nTested in https://github.com/neuroinformatics-unit/movement/pull/956\r\n\r\n## Does this PR require an update to the documentation?\r\nInstallation command has been updated.\r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added to cover all new functionality\r\n- [x] The documentation has been updated to reflect any changes\r\n- [x] The code has been formatted w"
+    },
+    {
+      "title": "Upgrade DataJoint from 0.14.x to 2.x",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/554",
+      "state": "merged",
+      "merged_at": "2026-04-27T15:04:38Z",
+      "body": "Squash-merge PR of #537 \r\n\r\n- also modifies datajoint CI tests to run on all PRs, pushes to all branches and tags (prefixed with `v`)"
+    },
+    {
+      "title": "Migrate pipeline metadata ingestion from dotmap device schemas to Pydantic",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/551",
+      "state": "merged",
+      "merged_at": "2026-04-21T13:21:05Z",
+      "body": "- Squash-merge PR for #524 \r\n- Also synchronises datajoint_pipeline branch with main"
+    },
+    {
+      "title": "Combine lint and test workflows",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/550",
+      "state": "merged",
+      "merged_at": "2026-05-14T19:00:11Z",
+      "body": "This PR closes #555 \r\n- combines lint and test in a single lint_and_test.yml\r\n- configures tests to run on\r\n  - ubuntu (all supported python versions, unit + integration tests)\r\n  - macOs and windows (latest supported python version - 3.12, unit tests only as only the ubuntu runner has docker pre-installed)\r\n- removes other unused workflows\r\n- updates docker-aeon-mecha.yml to run on `main` (is this workflow still needed?)\r\n \r\nRuff is failing but this can be addressed in a separate PR."
+    },
+    {
+      "title": "Add workflow to squash-merge `datajoint_pipeline` PRs to `main`",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/549",
+      "state": "closed",
+      "merged_at": "2026-04-27T15:54:20Z",
+      "body": "This PR replaces the squash-merge-to-prod workflow with one that squash-merges all merged PRs to datajoint_pipeline to `main`. \r\nThe current workflow is to keep the full commit history on `datajoint_pipeline` and a summarised view on `main`, essentially replacing the previous `main`/`prod` with `datajoint_pipeline`/`main`."
+    },
+    {
+      "title": "Add ephys pipeline",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/548",
+      "state": "merged",
+      "merged_at": "2026-04-20T16:35:46Z",
+      "body": "Add ephys schemas (v0.2.0).\r\n\r\nAdds spike sorting, manual curation, and cross-session unit matching capabilities to aeon mecha.\r\n\r\nTODO\r\n- re-release v0.2.0 after this PR is squash-merged to main"
+    },
+    {
+      "title": "Preserve images with 0 instances as empty labeled frames in DLC and COCO readers",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/pull/418",
+      "state": "merged",
+      "merged_at": "2026-05-21T04:10:56Z",
+      "body": "Closes #417 \r\n\r\nThis PR\r\n- fixes the COCO reader to create a LabeledFrame for every image in the \"images\" array, regardless of whether it appears in \"annotations\"\r\n- fixes the DLC reader to create a LabeledFrame for every CSV row, regardless of whether all coordinates are NaN\r\n- adds tests/data/coco/flat_images/annotations_negative_frame.json, a COCO annotations file with 3 images and 2 annotations (image id 2 has no corresponding annotation to represent a negative frame)\r\n- extends COCO read_la"
+    },
+    {
+      "title": "Replace commutation translation system partlist SVG",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/242",
+      "state": "merged",
+      "merged_at": "2026-04-14T09:25:31Z",
+      "body": "Closes #241 "
+    },
+    {
+      "title": "Use `docs` group dependency from pyproject.toml in build_docs action",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/158",
+      "state": "merged",
+      "merged_at": "2026-04-27T14:53:45Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nThis PR is needed as part of the work for migrating `docs` from optional dependencies to PEP 735 dependency groups (in https://github.com/neuroinformatics-unit/movement/pull/956)\r\nDetails are described in the issue: https://github.com/neuroinformatics-unit/movement/issues/955\r\n\r\n**What does this PR do?**\r\nUpdates the pip install command to use `--group`\r\n\r\n## How ha"
+    },
+    {
+      "title": "Fix notfound_urls_prefix",
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "url": "https://github.com/neuroinformatics-unit/sphinx-deployment-test/pull/9",
+      "state": "merged",
+      "merged_at": "2026-04-13T15:02:48Z",
+      "body": "Before submitting a pull request (PR), please read the [contributing guide](https://github.com/neuroinformatics-unit/.github/blob/main/CONTRIBUTING.md).\r\n\r\nPlease fill out as much of this template as you can, but if you have any problems or questions, just leave a comment and we will help out :)\r\n\r\n## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\n\r\n**What does this PR do?**\r\n\r\n## References\r\n\r\nPlease reference any"
+    },
+    {
+      "title": "Fix base URL for Sphinx documentation",
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "url": "https://github.com/neuroinformatics-unit/sphinx-deployment-test/pull/8",
+      "state": "merged",
+      "merged_at": "2026-04-13T14:49:30Z",
+      "body": "Before submitting a pull request (PR), please read the [contributing guide](https://github.com/neuroinformatics-unit/.github/blob/main/CONTRIBUTING.md).\r\n\r\nPlease fill out as much of this template as you can, but if you have any problems or questions, just leave a comment and we will help out :)\r\n\r\n## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\n\r\n**What does this PR do?**\r\n\r\n## References\r\n\r\nPlease reference any"
+    },
+    {
+      "title": "Set base URL",
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "url": "https://github.com/neuroinformatics-unit/sphinx-deployment-test/pull/7",
+      "state": "merged",
+      "merged_at": "2026-04-13T13:52:46Z",
+      "body": "Before submitting a pull request (PR), please read the [contributing guide](https://github.com/neuroinformatics-unit/.github/blob/main/CONTRIBUTING.md).\r\n\r\nPlease fill out as much of this template as you can, but if you have any problems or questions, just leave a comment and we will help out :)\r\n\r\n## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\n\r\n**What does this PR do?**\r\n\r\n## References\r\n\r\nPlease reference any"
+    },
+    {
+      "title": "Restore theme switcher",
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "url": "https://github.com/neuroinformatics-unit/sphinx-deployment-test/pull/6",
+      "state": "merged",
+      "merged_at": "2026-04-13T11:10:38Z",
+      "body": "https://github.com/neuroinformatics-unit/movement/issues/699\r\n"
+    },
+    {
+      "title": "Configure multi-version docs and custom notfound page",
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "url": "https://github.com/neuroinformatics-unit/sphinx-deployment-test/pull/5",
+      "state": "merged",
+      "merged_at": "2026-04-13T10:39:21Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\nFor testing https://github.com/neuroinformatics-unit/actions/pull/157 which fixes [404.html styling issues](https://github.com/neuroinformatics-unit/actions/issues/144) \r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added to cover all new functionality\r\n- [ ] The documentation has been updated to reflect any changes\r\n- [ ] The cod"
+    },
+    {
+      "title": "Use latest 404.html in multiversion Sphinx docs deployment",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/157",
+      "state": "merged",
+      "merged_at": "2026-04-16T12:19:36Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [x] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\ncloses #144 \r\n\r\n**What does this PR do?**\r\nThis PR supersedes #149 and replaces the root-level 404.html (which GH pages redirects to from pages not found) with the non-dev version (usually the latest) that triggered the deployment\r\n\r\n## How has this PR been tested?\r\nTested in the NIU sphinx-deployment-test repo (e.g. https://neuroinformatics.dev/sphinx-deployment-te"
+    },
+    {
+      "title": "Migrate `dev` and `docs` from optional dependencies to PEP 735 dependency groups",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/956",
+      "state": "merged",
+      "merged_at": "2026-04-29T13:48:58Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #955 \r\n\r\n**What does this PR do?**\r\n- moves `docs` and `dev` dependencies from \"optional dependencies\" (extras) to \"dependency groups\"\r\n- updates pip install instructions to use `--group`\r\n- ~~temporarily uses `build_sphinx_docs@build-docs-group-dep`~~ (from https://github.com/neuroinformatics-unit/actions/pull/158)\r\n\r\n## References\r\nhttps://github.com/neuroi"
+    },
+    {
+      "title": "Replace fixed contributor table with responsive grid",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/954",
+      "state": "merged",
+      "merged_at": "2026-04-13T14:27:02Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [x] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #953 \r\n\r\n**What does this PR do?**\r\n- Return when contributor table does not exist. \r\n- Replace fixed contributors table with responsive grid-card-items \r\n \r\n## How has this PR been tested?\r\nDocs built locally\r\n\r\n## Checklist:\r\n\r\n- [x] The code has been tested locally\r\n- [ ] Tests have been added to cover all new functionality\r\n- [ ] The documentation has bee"
+    },
+    {
+      "title": "Support numpy >=2.1.0",
+      "repo": "SainsburyWellcomeCentre/aeon_exp_foragingABC",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_exp_foragingABC/pull/70",
+      "state": "merged",
+      "merged_at": "2026-06-15T09:08:18Z",
+      "body": "Closes #69 \r\n\r\nThe minimum required versions for other dependencies have also been updated to ensure numpy 2 support.\r\n\r\nNumPy 2.1.0 provides support for Python 3.13"
+    },
+    {
+      "title": "Migrate pipeline metadata ingestion from dotmap device schemas to Pydantic",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/546",
+      "state": "closed",
+      "merged_at": "2026-03-30T11:43:08Z",
+      "body": ""
+    },
+    {
+      "title": "Add ephys pipeline",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/545",
+      "state": "merged",
+      "merged_at": "2026-04-13T16:17:05Z",
+      "body": "Based on what we've agreed in the previous meeting, this PR consolidates all ephys-related work (prior to the migration to pydantic models), and will be released as v0.2.0:\r\n\r\n> `dj_pipeline_ephys` -> merge -> `datajoint_pipeline` -> squash merge -> `main` - 0.2.0 tag\r\n> (then delete `dj_pipeline_ephys` branch)\r\n> \r\n_Originally posted by @ttngu207 in https://github.com/SainsburyWellcomeCentre/aeon_mecha/discussions/543#discussioncomment-16210468_\r\n\r\nOnce this has been merged into the `datatjoint"
+    },
+    {
+      "title": "Fetch tags upon checkout in docs build workflow",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/240",
+      "state": "merged",
+      "merged_at": "2026-03-24T12:54:30Z",
+      "body": "The actions/checkout step does not specify fetch-depth, so it defaults to 1 (a shallow clone with only the latest commit but no tags). In conf.py `git describe --tags --abbrev=0` then fails to find any tag and returns \"\"."
+    },
+    {
+      "title": "Add concurrency settings to docs build workflow",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/239",
+      "state": "merged",
+      "merged_at": "2026-03-23T10:43:06Z",
+      "body": "This PR configures the docs build workflow such that any in-progress runs are cancelled if a new run is triggered for the same ref, except for tags and main branch pushes."
+    },
+    {
+      "title": "Ignore all URLs containing globus.org",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/238",
+      "state": "merged",
+      "merged_at": "2026-03-23T10:32:57Z",
+      "body": ""
+    },
+    {
+      "title": "Test codecov behaviour 2",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/78",
+      "state": "closed",
+      "merged_at": "2026-03-20T15:10:18Z",
+      "body": ""
+    },
+    {
+      "title": "Use Aeon email for communications",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/236",
+      "state": "merged",
+      "merged_at": "2026-03-19T16:50:22Z",
+      "body": "Closes #210 "
+    },
+    {
+      "title": "Rename \"sample datasets\" page to \"datasets\"",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/235",
+      "state": "merged",
+      "merged_at": "2026-03-19T14:11:59Z",
+      "body": "Closes #164 \r\n\r\nalso redirects the old sample datasets page to the new destination URL"
+    },
+    {
+      "title": "Test fork PR codecov",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/915",
+      "state": "closed",
+      "merged_at": "2026-03-19T11:48:35Z",
+      "body": "Before submitting a pull request (PR), please read the [contributing guide](https://github.com/neuroinformatics-unit/.github/blob/main/CONTRIBUTING.md).\r\n\r\nPlease fill out as much of this template as you can, but if you have any problems or questions, just leave a comment and we will help out :)\r\n\r\n## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\n\r\n**What does this PR do?**\r\n\r\n## References\r\n\r\nPlease reference any"
+    },
+    {
+      "title": "Test codecov upload behaviour",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/76",
+      "state": "closed",
+      "merged_at": "2026-05-12T13:22:09Z",
+      "body": "for testing codecov upload behaviour\r\n\r\nInitial findings\r\n- The [send post request step](https://github.com/getsentry/prevent-cli/blob/03f2564e88eedbf3e343a9d1f2f1337cf9a87527/codecov-cli/codecov_cli/services/upload/upload_sender.py#L102-L107) seems to be returning code 400, so we never get to the [upload processing message](https://github.com/getsentry/prevent-cli/blob/03f2564e88eedbf3e343a9d1f2f1337cf9a87527/codecov-cli/codecov_cli/services/upload/upload_sender.py#L120), which we typically get"
+    },
+    {
+      "title": "Use dotnet v8 and docfx v2.78.5 for acquisition docs",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/234",
+      "state": "merged",
+      "merged_at": "2026-03-24T12:19:57Z",
+      "body": "Closes #213 "
+    },
+    {
+      "title": "Configure Dependabot with monthly update schedule for pre-commit",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/911",
+      "state": "closed",
+      "merged_at": "2026-03-18T14:22:35Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #910 \r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added to cover all new functionality\r\n- [ ] The documentation has been updated to reflect any changes\r\n- [x] The code has been formatted with [pre-commit](https://pre-commit.com/)\r\n"
+    },
+    {
+      "title": "Standardise make files",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/35",
+      "state": "merged",
+      "merged_at": "2026-03-25T11:10:44Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**What does this PR do?**\r\nStandardises Makefile and make.bat\r\n- make.bat behaviour now matches Makefile\r\n  - accepts chained targets, e.g.  `.\\make clean html` instead of `.\\make clean && .\\make html`\r\n  - `clean` target removes the same files as Makefile\r\n- `clean` target now additionally removes sg_execution_times.rst\r\n\r\n## Checklist:\r\n\r\n- [x] The code has been tested locally\r\n- [ ] Tests h"
+    },
+    {
+      "title": "Disable uv caching for publish job in CI workflow",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/74",
+      "state": "merged",
+      "merged_at": "2026-03-18T09:53:27Z",
+      "body": "Because the publish step only uses uv for publishing from built files (and not producing any uv-cacheable content, e.g. no dependencies were downloaded by uv), there isn't a cache which setup-uv expects to find at cleanup time.\r\n\r\nThe alternative would be to keep `enable-cache` as true (default) and set `ignore-nothing-to-cache: true` \r\n\r\nCloses #73 "
+    },
+    {
+      "title": "Update pandas URL in intersphinx config",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/895",
+      "state": "merged",
+      "merged_at": "2026-03-16T16:30:31Z",
+      "body": "pandas 3.0 stable release URL has switched from https://pandas.pydata.org/pandas-docs/stable/ to https://pandas.pydata.org/docs/ so [intersphinx was unable to find pandas' objects.inv](https://github.com/neuroinformatics-unit/movement/actions/runs/23152830037/job/67259215206#step:3:977)\r\n\r\nRequesting @sfmig 's review as this should unblock #769 "
+    },
+    {
+      "title": "Update and add missing docstrings",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/885",
+      "state": "merged",
+      "merged_at": "2026-03-17T11:07:51Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nThis PR \r\n- updates and adds missing class attribute docstrings in adherence to [PEP257 docstring conventions](https://peps.python.org/pep-0257/) for \"attribute docstrings\". This allows us to use type annotations in the docs. See also [sphinx autodoc's guide](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#doc-comments-and-docstrings) on documenti"
+    },
+    {
+      "title": "Add team meeting presentation",
+      "repo": "neuroinformatics-unit/documentation",
+      "url": "https://github.com/neuroinformatics-unit/documentation/pull/302",
+      "state": "merged",
+      "merged_at": "2026-02-26T10:55:50Z",
+      "body": ""
+    },
+    {
+      "title": "Remove 0-padding from example filenames",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/32",
+      "state": "merged",
+      "merged_at": "2026-02-12T15:10:14Z",
+      "body": "In PR #26 I am adding a helper function to auto-generate filenames. When generating the file_name, I also want to ensure the frameIDs have consistent width. To do so, I am just inferring the max length to pad based on `max(all_frame_ids)`. Given the sample data has only frames 1000-1004, the auto-generated filenames should also only have length 4.\r\n\r\nThis PR\r\n- removes 0-padding from the sample structure\r\n- updates the poseinterface data spec \r\n  - to include examples where 0-padding is needed\r\n"
+    },
+    {
+      "title": "Ignore ISO URL in linkcheck",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/815",
+      "state": "merged",
+      "merged_at": "2026-02-12T14:42:47Z",
+      "body": "Linkcheck for the ISO URL (https://www.iso.org/standard/82075.html) fails in #811 because of 403 error "
+    },
+    {
+      "title": "Configure dependabot for check_tag_on_main, deploy_sphinx_docs_multiversion, upload_pypi",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/142",
+      "state": "merged",
+      "merged_at": "2026-02-09T15:29:49Z",
+      "body": "This PR configures monthly dependabot chekcs for gh action updates for the following actions:\r\n \r\n- check_tag_on_main, \r\n- deploy_sphinx_docs_multiversion, \r\n- upload_pypi\r\n"
+    },
+    {
+      "title": "Use artifact.ci main repo upload action",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/141",
+      "state": "merged",
+      "merged_at": "2026-02-09T15:28:18Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [ ] Addition of a new feature\r\n- [x] Other\r\n\r\n**Why is this PR needed?**\r\nIn #90 we switched to NIU's artifact.ci fork which patches https://github.com/mmkal/artifact.ci/issues/10. The [PR](https://github.com/mmkal/artifact.ci/pull/9) has since been merged into main. So this PR switches back to the artifact.ci main repo.\r\n\r\n## References\r\n#90 \r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added to cover"
+    },
+    {
+      "title": "Ensure trailing slash in switcher.json URLs for deploy_sphinx_docs_multiversion",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/pull/140",
+      "state": "merged",
+      "merged_at": "2026-02-09T16:52:09Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [x] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\ncloses #139 \r\n\r\n**What does this PR do?**\r\n- adds trailing slash to the end of new URLs that go into the switcher.json file \r\n- also ensures existing URLs have the trailing slash added\r\n- simplifies the logic to return the base URL (see also #105)\r\n \r\n## References\r\n#139 \r\n\r\n## How has this PR been tested?\r\nI've only tested the changes in a local bash terminal\r\n\r\n##"
+    },
+    {
+      "title": "Refactor `annotations_to_coco`",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/26",
+      "state": "merged",
+      "merged_at": "2026-05-12T21:07:31Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [ ] Bug fix\r\n- [x] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\nCloses #23 \r\n\r\n**What does this PR do?**\r\n- Adds a helper function to auto-generate the list of image file names to be passed to coco.convert_labels\r\n  - the file names are 0-padded to match the width of the largest frame_idx in the dataset \r\n- Refactors `annotations_to_coco` to generate cliplabels or framelabels.json with the correct file names and image_ids that c"
+    },
+    {
+      "title": "Upper pin sleap-io >= 0.6.4",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/22",
+      "state": "merged",
+      "merged_at": "2026-02-06T14:40:28Z",
+      "body": "sleap-io >= 0.6.4 supports loading multi-index DLC .csv files"
+    },
+    {
+      "title": "Dynamically assign `device_type` based on subclass name",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/pull/68",
+      "state": "open",
+      "merged_at": "0001-01-01T00:00:00Z",
+      "body": "addresses #67 ?\r\n\r\nI updated device_type in the test Metadata.json to match the subclasses defined in test_base.py (is this correct?)\r\n"
+    },
+    {
+      "title": "Tn/pydantic schema",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/pull/526",
+      "state": "closed",
+      "merged_at": "2026-02-05T14:35:10Z",
+      "body": ""
+    },
+    {
+      "title": "Simplify equivalence check between Polars and Pandas DataFrames",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/pull/344",
+      "state": "merged",
+      "merged_at": "2026-02-03T20:47:20Z",
+      "body": "This PR closes #345 \r\n\r\nI also simplified the check by comparing the entire dataframe, rather than checking column by column. "
+    },
+    {
+      "title": "Add support for loading newer DLC files",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/pull/343",
+      "state": "merged",
+      "merged_at": "2026-02-03T20:52:35Z",
+      "body": "This PR closes #346 \r\n\r\n- adds test cases to load_dlc tests to cover newer DLC versions which [store image paths without separators as MultiIndex](https://github.com/DeepLabCut/DeepLabCut/pull/1584)\r\n- adds support for loading DLC v2 files by converting these back into Index\r\n- corrects the docstring for two other DLC fixtures\r\n\r\nTests are failing because of #345."
+    },
+    {
+      "title": "Clarify 404 page prefix configuration",
+      "repo": "AlgoFoe/movement",
+      "url": "https://github.com/AlgoFoe/movement/pull/1",
+      "state": "merged",
+      "merged_at": "2026-02-02T15:46:18Z",
+      "body": "making a PR to @AlgoFoe 's PR on movement as I didn't have push access to their branch"
+    },
+    {
+      "title": "Ignore Docutils URL in linkcheck",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/793",
+      "state": "merged",
+      "merged_at": "2026-02-02T15:49:10Z",
+      "body": "Linkcheck has been failing frequently recently (e.g. in PR #785 [checks](https://github.com/neuroinformatics-unit/movement/pull/785/checks)) with error 403 for https://docutils.sourceforge.io/rst.html"
+    },
+    {
+      "title": "Copy 404/index.html as 404.html for GH pages",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/227",
+      "state": "merged",
+      "merged_at": "2026-01-28T19:08:16Z",
+      "body": "and remove 404 from sitemap"
+    },
+    {
+      "title": "Update sitemap exclusions to use directory paths",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/226",
+      "state": "merged",
+      "merged_at": "2026-01-28T17:44:06Z",
+      "body": ""
+    },
+    {
+      "title": "Improve `make` files",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/225",
+      "state": "merged",
+      "merged_at": "2026-01-28T16:06:37Z",
+      "body": "- standardises `make.bat` to support `make clean html` rather than needing `.\\make clean && .\\make html`) (Makefile already supports this)\r\n- removes copied example notebooks in src dir in `clean` command\r\n- removes CNAME file automatically generated by [sphinx.ext.githubpages](https://www.sphinx-doc.org/en/master/usage/extensions/githubpages.html#module-sphinx.ext.githubpages) as this causes GitHub to automatically configure custom domain name (aeon.swc.ucl.ac.uk, a reverse proxy to the GH page"
+    },
+    {
+      "title": "Configure 404 page",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/224",
+      "state": "merged",
+      "merged_at": "2026-01-28T10:21:54Z",
+      "body": "Closes #222 together with PR #223"
+    },
+    {
+      "title": "Configure redirects for moved pages mentioned in Aeon platform paper",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/223",
+      "state": "merged",
+      "merged_at": "2026-01-27T16:18:30Z",
+      "body": "resolves partially #222 "
+    },
+    {
+      "title": "Update Aeon habitat URL",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/783",
+      "state": "closed",
+      "merged_at": "2026-01-27T13:35:12Z",
+      "body": ""
+    },
+    {
+      "title": "Use Sphinx `dirhtml` builder",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/221",
+      "state": "merged",
+      "merged_at": "2026-01-26T19:23:13Z",
+      "body": "See #217 \r\n\r\nThe aeon homepage is not indexed because of the following error:\r\nDuplicate, Google chose different canonical than user\r\nUser-declared canonical: https://aeon.swc.ucl.ac.uk/index.html\r\nGoogle-selected canonical: https://aeon.swc.ucl.ac.uk/\r\n\r\nThis is because the sitemap.xml generated using sphinx-sitemap contains https://aeon.swc.ucl.ac.uk/index.html instead of the dir URL. To work around this, we switch to the `dirhtml` builder instead of the default `html` builder."
+    },
+    {
+      "title": "Create sample Train directory structure",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/pull/21",
+      "state": "merged",
+      "merged_at": "2026-02-06T14:11:44Z",
+      "body": "Closes #18 \r\n\r\nAdded in Clips\r\n- a clip with 5 frames (.mp4)\r\n- the corresponding cliplabels.json (image_ids have been changed to 0-based)\r\n\r\nAdded in Frames\r\n- the same 5 frames extracted from the clip (.png)\r\n- the corresponding framelabels.json** (image_id is the video frame index) \r\n\r\n** here we have consecutive frame indices, but we would typically have random frames\r\n\r\n## TODO\r\n- [x] use frame files as clip file_name\r\n- [x] remove extension from clip file_name because these frame files may"
+    },
+    {
+      "title": "Use explicit targets to refer to Aeon docs pages and update redirected URLs",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/219",
+      "state": "merged",
+      "merged_at": "2026-01-14T18:33:31Z",
+      "body": ""
+    },
+    {
+      "title": "Add sitemap generation support and robots.txt file",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/pull/218",
+      "state": "merged",
+      "merged_at": "2026-01-14T12:58:55Z",
+      "body": "Helps resolve some indexing confusion (#217)"
+    },
+    {
+      "title": "Remove duplicated check-manifest step",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/pull/744",
+      "state": "merged",
+      "merged_at": "2026-01-07T17:37:44Z",
+      "body": "## Description\r\n\r\n**What is this PR**\r\n\r\n- [x] Bug fix\r\n- [ ] Addition of a new feature\r\n- [ ] Other\r\n\r\n**Why is this PR needed?**\r\nThis PR closes #743 \r\n\r\n**What does this PR do?**\r\nThis PR removes the manifest job from test_and_deploy.yml, keeping the one in pre-commit-config.yaml, so that we can get fast feedback locally, and pre-commit.ci will also run this check remotely. This keeps the CI steps simple.\r\n\r\n## Checklist:\r\n\r\n- [ ] The code has been tested locally\r\n- [ ] Tests have been added "
+    }
+  ],
+  "issues": [
+    {
+      "title": "Update poses `confidence_array` docs",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1004",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Support saving individual-wise confidence scores to different formats",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1003",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Add support for COCO keypoint results format",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/1000",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Replace `print_slurm_config` with `write_spike_sorting_scripts`",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/issues/577",
+      "state": "closed",
+      "closed_at": "2026-06-03T12:35:07Z"
+    },
+    {
+      "title": "Prev/next navigation style broken in `aeon_acquisition` API reference",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/251",
+      "state": "closed",
+      "closed_at": "2026-05-19T13:40:55Z"
+    },
+    {
+      "title": "Permanently redirected URLs in aeon_dj_pipeline.md",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/249",
+      "state": "closed",
+      "closed_at": "2026-05-19T09:17:26Z"
+    },
+    {
+      "title": "Permanently redirected URLs in aeon_mecha docs",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/248",
+      "state": "closed",
+      "closed_at": "2026-05-19T11:38:52Z"
+    },
+    {
+      "title": "Migrate `dev` from optional dependencies to PEP 735 dependency groups",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/issues/83",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "`averageframes` collapses frames to scalar",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/issues/81",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Update installation instructions for aeon_api and aeon_mecha",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/244",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Remove custom `typehints_formatter` and set minimum version for sphinx-autodoc-typehints",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/975",
+      "state": "closed",
+      "closed_at": "2026-06-01T17:23:00Z"
+    },
+    {
+      "title": "`type X = Y` (PEP 695 `TypeAliasType`) renders as `TypeAliasType` instead of alias value",
+      "repo": "tox-dev/sphinx-autodoc-typehints",
+      "url": "https://github.com/tox-dev/sphinx-autodoc-typehints/issues/690",
+      "state": "closed",
+      "closed_at": "2026-05-04T17:00:25Z"
+    },
+    {
+      "title": "Clean up unused GitHub actions workflows",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/issues/555",
+      "state": "closed",
+      "closed_at": "2026-05-14T19:00:12Z"
+    },
+    {
+      "title": "Mention spike-sorted data",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/243",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Inconsistent empty frame handling across I/O formats",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/issues/417",
+      "state": "closed",
+      "closed_at": "2026-05-21T04:10:57Z"
+    },
+    {
+      "title": "Migrate `dev` and `docs` from optional dependencies to PEP 735 dependency groups",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/955",
+      "state": "closed",
+      "closed_at": "2026-04-29T13:48:59Z"
+    },
+    {
+      "title": "Uncaught TypeError in contributor.js",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/953",
+      "state": "closed",
+      "closed_at": "2026-04-13T14:27:04Z"
+    },
+    {
+      "title": "Garbled text in commutation translation system parts list svg",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/241",
+      "state": "closed",
+      "closed_at": "2026-04-14T09:25:32Z"
+    },
+    {
+      "title": "Frames without detected keypoints",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/issues/44",
+      "state": "closed",
+      "closed_at": "2026-05-27T15:07:44Z"
+    },
+    {
+      "title": "pyright errors",
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_mecha/issues/547",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Upgrade to numpy> 2 to support Python 3.13",
+      "repo": "SainsburyWellcomeCentre/aeon_exp_foragingABC",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_exp_foragingABC/issues/69",
+      "state": "closed",
+      "closed_at": "2026-06-15T09:08:19Z"
+    },
+    {
+      "title": "Configure Dependabot for pre-commit",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/910",
+      "state": "closed",
+      "closed_at": "2026-03-18T14:23:09Z"
+    },
+    {
+      "title": "Configure dependabot to manage dependencies",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/issues/75",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Fix broken and permanently redirected URLs",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/233",
+      "state": "closed",
+      "closed_at": "2026-05-19T11:38:59Z"
+    },
+    {
+      "title": "Configure dependabot to update pre-commit hooks",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/232",
+      "state": "closed",
+      "closed_at": "2026-03-18T11:51:37Z"
+    },
+    {
+      "title": "Make `movement.sample_data.hide_pooch_hash_logs` private",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/841",
+      "state": "closed",
+      "closed_at": "2026-02-26T18:33:34Z"
+    },
+    {
+      "title": "Should `factor` arg in `movement.transforms.scale` be required?",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/838",
+      "state": "closed",
+      "closed_at": "2026-03-13T11:15:27Z"
+    },
+    {
+      "title": "Overwrite existing file when saving",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/813",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Deprecate dataset-specific `from_file` and `from_multiview_files`",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/812",
+      "state": "closed",
+      "closed_at": "2026-05-18T13:15:05Z"
+    },
+    {
+      "title": "Reorganise contributing guide",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/808",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Outdated github actions versions",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/issues/143",
+      "state": "closed",
+      "closed_at": "2026-02-09T15:29:51Z"
+    },
+    {
+      "title": "Helper function to generate `coco_image_filenames` for `annotations_to_coco`",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/issues/23",
+      "state": "closed",
+      "closed_at": "2026-05-12T21:07:32Z"
+    },
+    {
+      "title": "Switching version on website redirects to homepage",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/issues/139",
+      "state": "closed",
+      "closed_at": "2026-02-09T16:52:10Z"
+    },
+    {
+      "title": "`UndergroundFeeder.device_type` is set as HarpOutputExpander",
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_api/issues/67",
+      "state": "closed",
+      "closed_at": "2026-02-19T21:28:35Z"
+    },
+    {
+      "title": "404 page at the root level is not updated",
+      "repo": "neuroinformatics-unit/actions",
+      "url": "https://github.com/neuroinformatics-unit/actions/issues/144",
+      "state": "closed",
+      "closed_at": "2026-04-13T10:39:22Z"
+    },
+    {
+      "title": "Loading newer DLC format returns 0 labelled frames",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/issues/346",
+      "state": "closed",
+      "closed_at": "2026-02-03T20:52:36Z"
+    },
+    {
+      "title": "`test_polars_pandas_equivalence` fails on pandas 3.0",
+      "repo": "talmolab/sleap-io",
+      "url": "https://github.com/talmolab/sleap-io/issues/345",
+      "state": "closed",
+      "closed_at": "2026-02-03T20:47:21Z"
+    },
+    {
+      "title": "Broken 404 page",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/784",
+      "state": "closed",
+      "closed_at": "2026-02-03T17:17:18Z"
+    },
+    {
+      "title": "Broken .html links",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/222",
+      "state": "closed",
+      "closed_at": "2026-01-28T10:21:55Z"
+    },
+    {
+      "title": "Create minimal test data",
+      "repo": "neuroinformatics-unit/poseinterface",
+      "url": "https://github.com/neuroinformatics-unit/poseinterface/issues/18",
+      "state": "closed",
+      "closed_at": "2026-02-06T14:11:46Z"
+    },
+    {
+      "title": "\"raises\" incorrectly formatted in `LineOfInterest.normal` docstring",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/770",
+      "state": "closed",
+      "closed_at": "2026-01-20T20:41:16Z"
+    },
+    {
+      "title": "Google search console issues",
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "url": "https://github.com/SainsburyWellcomeCentre/aeon_docs/issues/217",
+      "state": "open",
+      "closed_at": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Duplicated check-manifest step",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/743",
+      "state": "closed",
+      "closed_at": "2026-01-07T17:37:45Z"
+    },
+    {
+      "title": "Log default assignment at INFO level ",
+      "repo": "neuroinformatics-unit/movement",
+      "url": "https://github.com/neuroinformatics-unit/movement/issues/741",
+      "state": "closed",
+      "closed_at": "2026-05-08T12:23:48Z"
+    }
+  ],
+  "commits": [
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 3,
+      "date": "2026-05-19T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 2,
+      "date": "2026-04-14T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 4,
+      "date": "2026-03-24T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 3,
+      "date": "2026-03-23T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 2,
+      "date": "2026-03-19T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 8,
+      "date": "2026-01-28T08:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 3,
+      "date": "2026-01-27T08:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 5,
+      "date": "2026-01-26T08:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_docs",
+      "commit_count": 5,
+      "date": "2026-01-14T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-28T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-27T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-15T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-08T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-05-07T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 2,
+      "date": "2026-05-01T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-04-29T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-04-22T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-04-13T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-04-10T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-04-09T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 2,
+      "date": "2026-03-17T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-03-16T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-03-09T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-03-02T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-02-26T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-02-13T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-02-12T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 2,
+      "date": "2026-02-03T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-02-02T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-01-09T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 2,
+      "date": "2026-01-08T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/movement",
+      "commit_count": 1,
+      "date": "2026-01-07T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-27T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-26T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-14T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-05-12T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-04-28T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 2,
+      "date": "2026-03-25T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-02-12T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 2,
+      "date": "2026-02-11T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 1,
+      "date": "2026-02-10T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/poseinterface",
+      "commit_count": 2,
+      "date": "2026-02-06T08:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-06-10T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-05-21T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 2,
+      "date": "2026-05-14T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-05-11T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-04-27T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-04-21T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_mecha",
+      "commit_count": 1,
+      "date": "2026-04-20T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/actions",
+      "commit_count": 1,
+      "date": "2026-04-28T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/actions",
+      "commit_count": 1,
+      "date": "2026-04-27T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/actions",
+      "commit_count": 1,
+      "date": "2026-04-16T07:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/actions",
+      "commit_count": 2,
+      "date": "2026-02-09T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/sphinx-deployment-test",
+      "commit_count": 5,
+      "date": "2026-04-13T07:00:00Z"
+    },
+    {
+      "repo": "talmolab/sleap-io",
+      "commit_count": 1,
+      "date": "2026-05-21T07:00:00Z"
+    },
+    {
+      "repo": "talmolab/sleap-io",
+      "commit_count": 2,
+      "date": "2026-02-03T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/neuroinformatics-unit.github.io",
+      "commit_count": 1,
+      "date": "2026-02-01T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/neuroinformatics-unit.github.io",
+      "commit_count": 1,
+      "date": "2026-01-29T08:00:00Z"
+    },
+    {
+      "repo": "neuroinformatics-unit/neuroinformatics-unit.github.io",
+      "commit_count": 1,
+      "date": "2026-01-26T08:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "commit_count": 1,
+      "date": "2026-03-18T07:00:00Z"
+    },
+    {
+      "repo": "SainsburyWellcomeCentre/aeon_api",
+      "commit_count": 1,
+      "date": "2026-01-28T08:00:00Z"
+    },
+    {
+      "repo": "tox-dev/sphinx-autodoc-typehints",
+      "commit_count": 1,
+      "date": "2026-05-04T07:00:00Z"
+    },
+    {
+      "repo": "conda-forge/movement-feedstock",
+      "commit_count": 1,
+      "date": "2026-02-18T08:00:00Z"
+    }
+  ]
+}
