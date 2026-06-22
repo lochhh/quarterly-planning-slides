@@ -25,7 +25,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 EXCLUDED_REPOS = {"e-babylab", "claude-code-slides", "quarterly-planning-slides"}
-OUTPUT_PATH = Path(".claude/handoff/github_activity.json")
+DEFAULT_OUTPUT_PATH = Path(".claude/handoff/github_activity.json")
 
 
 def run_gh(args: list[str]) -> list[dict] | dict:
@@ -281,6 +281,7 @@ def main():
     parser.add_argument("--branch", default="main", help="Branch for --repo commits (default: main)")
     parser.add_argument("--start", required=True, help="Start date YYYY-MM-DD")
     parser.add_argument("--end", required=True, help="End date YYYY-MM-DD (quarterly planning date)")
+    parser.add_argument("--output", default=None, help="Output JSON path (default: .claude/handoff/github_activity.json)")
     args = parser.parse_args()
 
     if not args.author and not args.repos:
@@ -322,9 +323,10 @@ def main():
         if repo_releases:
             output["repo_releases"] = repo_releases
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(output, indent=2), encoding="utf-8")
-    print(f"Written to {OUTPUT_PATH}")
+    out = Path(args.output) if args.output else DEFAULT_OUTPUT_PATH
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(output, indent=2), encoding="utf-8")
+    print(f"Written to {out}")
 
 
 if __name__ == "__main__":
